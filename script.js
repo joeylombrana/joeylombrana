@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Add timestamp for EmailJS
     let timeField = reviewForm.querySelector('input[name="time"]');
     if (!timeField) {
       timeField = document.createElement("input");
@@ -60,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       timeStyle: "short"
     });
 
+    // Combine checked services into one field for EmailJS
     const checkedServices = Array.from(
       reviewForm.querySelectorAll('input[name="services"]:checked')
     ).map((el) => el.value);
@@ -76,17 +78,19 @@ document.addEventListener("DOMContentLoaded", () => {
     servicesField.value = checkedServices.join(", ");
 
     try {
-      await emailjs.sendForm(
+      const leadResult = await emailjs.sendForm(
         "Service_0dkwo5q",
         "Template_iq3xy0t",
         reviewForm
       );
+      console.log("Lead email sent:", leadResult);
 
-      await emailjs.sendForm(
+      const autoReplyResult = await emailjs.sendForm(
         "Service_0dkwo5q",
         "template_5v8hjjl",
         reviewForm
       );
+      console.log("Auto-reply sent:", autoReplyResult);
 
       reviewForm.classList.add("hidden");
       thankYouMessage.classList.remove("hidden");
@@ -100,8 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
         window.turnstile.reset();
       }
     } catch (error) {
-      console.error("EmailJS error:", error);
-      alert("Something went wrong. Please try again.");
+      console.error("EmailJS error full object:", error);
+      alert(`Email error: ${error?.text || error?.message || JSON.stringify(error)}`);
     }
   });
 });
