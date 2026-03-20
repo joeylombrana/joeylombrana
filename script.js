@@ -34,9 +34,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // 🕒 Add timestamp for EmailJS template
-    let timeField = reviewForm.querySelector('input[name="time"]');
+    const consent = document.getElementById("consent");
+    if (!consent || !consent.checked) {
+      alert("Please review and accept the contact consent before submitting.");
+      return;
+    }
 
+    const turnstileResponse = reviewForm.querySelector('[name="cf-turnstile-response"]');
+    if (!turnstileResponse || !turnstileResponse.value) {
+      alert("Please complete the security check.");
+      return;
+    }
+
+    let timeField = reviewForm.querySelector('input[name="time"]');
     if (!timeField) {
       timeField = document.createElement("input");
       timeField.type = "hidden";
@@ -50,13 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
       timeStyle: "short"
     });
 
-    // ✅ Combine checked services into one field for EmailJS
     const checkedServices = Array.from(
       reviewForm.querySelectorAll('input[name="services"]:checked')
     ).map((el) => el.value);
 
     let servicesField = reviewForm.querySelector('input[data-generated="true"]');
-
     if (!servicesField) {
       servicesField = document.createElement("input");
       servicesField.type = "hidden";
@@ -68,14 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
     servicesField.value = checkedServices.join(", ");
 
     try {
-      // 🔔 Send lead notification to you
       await emailjs.sendForm(
         "Service_0dkwo5q",
         "Template_iq3xy0t",
         reviewForm
       );
 
-      // 📩 Send auto-reply to client
       await emailjs.sendForm(
         "Service_0dkwo5q",
         "template_5v8hjjl",
@@ -90,6 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
       servicesField.value = "";
       timeField.value = "";
 
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
     } catch (error) {
       console.error("EmailJS error:", error);
       alert("Something went wrong. Please try again.");

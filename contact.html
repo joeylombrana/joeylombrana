@@ -6,6 +6,7 @@
   <title>Contact | The Lombraña Agency</title>
   <meta name="description" content="Start your protection review with The Lombraña Agency." />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -101,6 +102,25 @@
               Whole Life Insurance
             </label>
           </fieldset>
+
+          <div class="field field-full consent-wrap">
+            <label class="consent-label">
+              <input id="consent" name="consent" type="checkbox" required />
+              <span>
+                By submitting this form, I agree to be contacted by The Lombraña Agency by phone, email, and SMS/text message regarding my request for information, insurance options, and follow-up communications. Message and data rates may apply. Message frequency may vary. Reply STOP to opt out of text messages.
+              </span>
+            </label>
+            <p class="consent-note">Consent is not a condition of purchase.</p>
+          </div>
+
+          <div class="field field-full captcha-wrap">
+            <label>Spam Protection</label>
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAACthPdCWvkXvUPT3"
+              data-theme="light">
+            </div>
+          </div>
 
           <div class="honeypot" aria-hidden="true">
             <label for="website">Leave this field blank</label>
