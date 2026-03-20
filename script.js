@@ -84,13 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         reviewForm
       );
       console.log("Lead email sent:", leadResult);
-
-      const autoReplyResult = await emailjs.sendForm(
-        "service_0dkwo5q",
-        "template_5v8hjjl",
-        reviewForm
-      );
-      console.log("Auto-reply sent:", autoReplyResult);
+      alert("Lead email sent successfully.");
 
       reviewForm.classList.add("hidden");
       thankYouMessage.classList.remove("hidden");
