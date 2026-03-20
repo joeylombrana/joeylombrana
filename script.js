@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Add timestamp for EmailJS
     let timeField = reviewForm.querySelector('input[name="time"]');
     if (!timeField) {
       timeField = document.createElement("input");
@@ -60,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       timeStyle: "short"
     });
 
+    // Combine checked services into one field for EmailJS
     const checkedServices = Array.from(
       reviewForm.querySelectorAll('input[name="services"]:checked')
     ).map((el) => el.value);
@@ -77,14 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const leadResult = await emailjs.sendForm(
-        "Service_0dkwo5q",
-        "Template_iq3xy0t",
+        "service_0dkwo5q",
+        "template_iq3xy0t",
         reviewForm
       );
       console.log("Lead email sent:", leadResult);
 
       const autoReplyResult = await emailjs.sendForm(
-        "Service_0dkwo5q",
+        "service_0dkwo5q",
         "template_5v8hjjl",
         reviewForm
       );
