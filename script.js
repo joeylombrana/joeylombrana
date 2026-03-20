@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Add timestamp for EmailJS
     let timeField = reviewForm.querySelector('input[name="time"]');
     if (!timeField) {
       timeField = document.createElement("input");
@@ -61,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
       timeStyle: "short"
     });
 
-    // Combine checked services into one field for EmailJS
     const checkedServices = Array.from(
       reviewForm.querySelectorAll('input[name="services"]:checked')
     ).map((el) => el.value);
