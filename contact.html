@@ -73,7 +73,7 @@
 
           <div class="field">
             <label for="mortgage">Monthly Mortgage Payment</label>
-            <input id="mortgage" name="mortgage" type="text" />
+            <input id="mortgage" name="payment" type="text" />
           </div>
 
           <div class="field">
@@ -88,9 +88,18 @@
 
           <fieldset class="field field-full checkbox-group">
             <legend>Which service are you inquiring about?</legend>
-            <label><input type="checkbox" name="service" value="Mortgage Protection" /> Mortgage Protection</label>
-            <label><input type="checkbox" name="service" value="Final Expense" /> Final Expense</label>
-            <label><input type="checkbox" name="service" value="Whole Life Insurance" /> Whole Life Insurance</label>
+            <label>
+              <input type="checkbox" name="services" value="Mortgage Protection" />
+              Mortgage Protection
+            </label>
+            <label>
+              <input type="checkbox" name="services" value="Final Expense" />
+              Final Expense
+            </label>
+            <label>
+              <input type="checkbox" name="services" value="Whole Life Insurance" />
+              Whole Life Insurance
+            </label>
           </fieldset>
 
           <div class="honeypot" aria-hidden="true">
@@ -139,6 +148,14 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init({
+        publicKey: "0r6LdcehHdjFk2FKD"
+      });
+    })();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
