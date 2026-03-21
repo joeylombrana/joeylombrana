@@ -35,10 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const consent = document.getElementById("consent");
-    if (!consent || !consent.checked) {
-      alert("Please review and accept the contact consent before submitting.");
-      return;
-    }
+    const consentGiven = !!(consent && consent.checked);
 
     const turnstileResponse = reviewForm.querySelector('[name="cf-turnstile-response"]');
     if (!turnstileResponse || !turnstileResponse.value) {
@@ -59,6 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
       dateStyle: "long",
       timeStyle: "short"
     });
+
+    let consentField = reviewForm.querySelector('input[name="consentStatus"]');
+    if (!consentField) {
+      consentField = document.createElement("input");
+      consentField.type = "hidden";
+      consentField.name = "consentStatus";
+      reviewForm.appendChild(consentField);
+    }
+
+    consentField.value = consentGiven ? "Yes" : "No";
 
     const checkedServices = Array.from(
       reviewForm.querySelectorAll('input[name="services"]:checked')
@@ -97,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
       reviewForm.reset();
       servicesField.value = "";
       timeField.value = "";
+      consentField.value = "";
 
       if (window.turnstile) {
         window.turnstile.reset();
