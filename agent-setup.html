@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Setup | The Lombraña Agency</title>
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <meta name="robots" content="noindex, nofollow" />
+</head>
+<body>
+  <main class="section">
+    <div class="container narrow">
+      <p class="eyebrow">Private Setup Request</p>
+
+      <h1 class="page-title">Request Setup / Walkthrough</h1>
+
+      <p class="page-intro">
+        Get your own lead capture system set up and ready to use. I’ll walk you through the process and help you decide whether this is a good fit for your workflow.
+      </p>
+
+      <p style="font-weight: 600; color: var(--navy); margin-bottom: 14px;">
+        Limited availability — I only onboard a small number of agents at a time.
+      </p>
+
+      <div class="form-shell">
+        <form id="agentForm" class="review-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="agent-name">Full Name</label>
+              <input id="agent-name" type="text" name="name" required />
+            </div>
+
+            <div class="field">
+              <label for="agent-email">Email</label>
+              <input id="agent-email" type="email" name="email" required />
+            </div>
+
+            <div class="field">
+              <label for="agent-phone">Phone</label>
+              <input id="agent-phone" type="tel" name="phone" required />
+            </div>
+
+            <div class="field">
+              <label for="agent-organization">Organization</label>
+              <input
+                id="agent-organization"
+                type="text"
+                name="organization"
+                placeholder="Symmetry, independent, brokerage, etc."
+              />
+            </div>
+
+            <div class="field field-full">
+              <label for="agent-goal">What are you looking to do?</label>
+              <select id="agent-goal" name="goal" required>
+                <option value="">Select one</option>
+                <option value="Set up my own lead system">Set up my own lead system</option>
+                <option value="Generate more inbound leads">Generate more inbound leads</option>
+                <option value="Automate follow-up">Automate follow-up</option>
+                <option value="Just want a walkthrough">Just want a walkthrough</option>
+              </select>
+            </div>
+
+            <div class="field field-full">
+              <label for="agent-notes">Anything I should know before we talk?</label>
+              <input
+                id="agent-notes"
+                type="text"
+                name="notes"
+                placeholder="Current workflow, tools, goals, etc."
+              />
+            </div>
+
+            <div class="field field-full consent-wrap">
+              <label class="consent-label">
+                <input id="agent-consent" name="consent" type="checkbox" />
+                <span>
+                  By submitting this form, I agree that <strong>Jose Lombrana, operating as The Lombraña Agency</strong> may contact me by phone call, SMS/text message, or email regarding setup, walkthroughs, and related services. Message and data rates may apply. Message frequency may vary. Reply STOP to opt out of text messages. Consent is not a condition of purchase.
+                </span>
+              </label>
+
+              <p class="consent-note">Consent is not a condition of purchase.</p>
+
+              <p class="privacy-link">
+                By submitting, you agree to our
+                <a href="privacy.html" target="_blank">Privacy Policy</a>
+                and
+                <a href="terms.html" target="_blank">Terms &amp; Conditions</a>.
+              </p>
+            </div>
+
+            <div class="honeypot" aria-hidden="true">
+              <label for="agent-website">Leave this field blank</label>
+              <input id="agent-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Request Setup
+          </button>
+        </form>
+
+        <div id="agentThankYouMessage" class="thank-you hidden">
+          <h2>Request Received</h2>
+          <p>
+            Thanks for reaching out. I’ll review your request and follow up shortly to schedule a walkthrough.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init({
+        publicKey: "0r6LdcehHdjFk2FKD"
+      });
+    })();
+  </script>
+  <script src="agent-setup.js?v=1"></script>
+</body>
+</html>
