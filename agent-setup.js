@@ -37,12 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
     consentField.value = consent && consent.checked ? "Yes" : "No";
 
     try {
+      // 1. Send notification to you
       await emailjs.sendForm(
-    "service_0dkwo5q",
-    "template_agent_setup",
+        "service_0dkwo5q",
+        "template_agent_setup",
         agentForm
       );
 
+      // 2. Send auto-reply to the agent
+      await emailjs.sendForm(
+        "service_0dkwo5q",
+        "template_agent_autoreply",
+        agentForm
+      );
+
+      // 3. Update UI
       agentForm.classList.add("hidden");
       thankYouMessage.classList.remove("hidden");
       window.scrollTo({ top: 0, behavior: "smooth" });
