@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       await emailjs.sendForm(
-        "service_0dkwo5q",
-        "template_iq3xy0t",
+    "service_0dkwo5q",
+    "template_agent_setup",
         agentForm
       );
 
