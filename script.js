@@ -112,10 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       console.log("Auto-reply sent:", autoReplyResult);
 
-      const sheetResponse = await fetch(
+      await fetch(
         "https://script.google.com/macros/s/AKfycbzVy9ar4nlo3GQWMOrh1ae4AjVs9tTzIxQrlnG3P4-Drn8QP2DY0h7JwKbJuyxiBprM/exec",
         {
           method: "POST",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json"
           },
@@ -123,12 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       );
 
-      const sheetResult = await sheetResponse.json();
-      console.log("Google Sheets result:", sheetResult);
-
-      if (!sheetResult.success) {
-        throw new Error(sheetResult.error || "Google Sheets webhook failed.");
-      }
+      console.log("Lead sent to Google Sheets webhook.");
 
       reviewForm.classList.add("hidden");
       thankYouMessage.classList.remove("hidden");
