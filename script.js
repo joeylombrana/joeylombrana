@@ -112,16 +112,19 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       console.log("Auto-reply sent:", autoReplyResult);
 
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbzVy9ar4nlo3GQWMOrh1ae4AjVs9tTzIxQrlnG3P4-Drn8QP2DY0h7JwKbJuyxiBprM/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(sheetPayload)
-        }
+     await fetch(
+  "https://script.google.com/macros/s/AKfycbzVy9ar4nlo3GQWMOrh1ae4AjVs9tTzIxQrlnG3P4-Drn8QP2DY0h7JwKbJuyxiBprM/exec",
+  {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify(sheetPayload)
+  }
+);
+
+console.log("Lead sent to Google Sheets webhook.");
       );
 
       console.log("Lead sent to Google Sheets webhook.");
