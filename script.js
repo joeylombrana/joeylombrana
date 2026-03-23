@@ -82,6 +82,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     servicesField.value = checkedServices.join(", ");
 
+    const sheetPayload = {
+      timestamp: timeField.value,
+      full_name: reviewForm.querySelector('[name="name"]').value,
+      phone: reviewForm.querySelector('[name="phone"]').value,
+      email: reviewForm.querySelector('[name="email"]').value,
+      address: reviewForm.querySelector('[name="address"]').value,
+      balance: reviewForm.querySelector('[name="balance"]').value,
+      payment: reviewForm.querySelector('[name="payment"]').value,
+      beneficiary: reviewForm.querySelector('[name="beneficiary"]').value,
+      beneficiary_contact: reviewForm.querySelector('[name="beneficiaryContact"]').value,
+      services: servicesField.value,
+      consent_status: consentField.value,
+      source_page: "contact.html"
+    };
+
     try {
       const leadResult = await emailjs.sendForm(
         "service_0dkwo5q",
@@ -97,6 +112,24 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       console.log("Auto-reply sent:", autoReplyResult);
 
+      const sheetResponse = await fetch(
+        "https://script.google.com/macros/s/AKfycbzVy9ar4nlo3GQWMOrh1ae4AjVs9tTzIxQrlnG3P4-Drn8QP2DY0h7JwKbJuyxiBprM/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(sheetPayload)
+        }
+      );
+
+      const sheetResult = await sheetResponse.json();
+      console.log("Google Sheets result:", sheetResult);
+
+      if (!sheetResult.success) {
+        throw new Error(sheetResult.error || "Google Sheets webhook failed.");
+      }
+
       reviewForm.classList.add("hidden");
       thankYouMessage.classList.remove("hidden");
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -110,8 +143,8 @@ document.addEventListener("DOMContentLoaded", () => {
         window.turnstile.reset();
       }
     } catch (error) {
-      console.error("EmailJS error full object:", error);
-      alert(`Email error: ${error?.text || error?.message || JSON.stringify(error)}`);
+      console.error("Form submission error:", error);
+      alert(`Error: ${error?.text || error?.message || JSON.stringify(error)}`);
     }
   });
 });
