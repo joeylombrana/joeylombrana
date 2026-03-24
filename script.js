@@ -84,7 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const sheetPayload = {
       timestamp: timeField.value,
-      full_name: reviewForm.querySelector('[name="name"]').value,
+      first_name: reviewForm.querySelector('[name="firstName"]').value,
+      mi: reviewForm.querySelector('[name="mi"]').value,
+      last_name: reviewForm.querySelector('[name="lastName"]').value,
       age: reviewForm.querySelector('[name="age"]').value,
       phone: reviewForm.querySelector('[name="phone"]').value,
       email: reviewForm.querySelector('[name="email"]').value,
