@@ -42,11 +42,22 @@
     <div class="container form-shell">
       <form id="reviewForm" class="review-form">
         <div class="form-grid">
+          
           <div class="field">
-            <label for="name">Full Name</label>
-            <input id="name" name="name" type="text" required />
+          <label for="firstName">First Name</label>
+          <input id="firstName" name="firstName" type="text" required />
+          </div>
+        
+        <div class="field">
+          <label for="mi">MI</label>
+          <input id="mi" name="mi" type="text" maxlength="1" />
           </div>
 
+          <div class="field">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" required />
+          </div>
+          
           <div class="field">
             <label for="age">Age</label>
             <input id="age" name="age" type="number" min="18" max="120" required />
