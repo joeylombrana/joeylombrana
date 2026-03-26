@@ -6,6 +6,265 @@
   <title>Verification | The Lombraña Agency</title>
   <meta name="description" content="Verify Joey Lombrana and The Lombraña Agency through the California Department of Insurance." />
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .verification-page {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(201, 169, 106, 0.16), transparent 28%),
+        radial-gradient(circle at left center, rgba(18, 48, 74, 0.10), transparent 30%);
+    }
+
+    .verification-page::before,
+    .verification-page::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(24px);
+      opacity: 0.8;
+    }
+
+    .verification-page::before {
+      width: 220px;
+      height: 220px;
+      top: -60px;
+      right: -60px;
+      background: rgba(201, 169, 106, 0.14);
+    }
+
+    .verification-page::after {
+      width: 180px;
+      height: 180px;
+      left: -36px;
+      bottom: 70px;
+      background: rgba(18, 48, 74, 0.10);
+    }
+
+    .verification-hero,
+    .verify-card {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(18, 48, 74, 0.95), rgba(18, 48, 74, 0.87));
+      color: #ffffff;
+      border-radius: 24px;
+      box-shadow:
+        0 22px 44px rgba(10, 25, 41, 0.18),
+        0 0 0 1px rgba(255,255,255,0.05) inset;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+    }
+
+    .verification-hero::before,
+    .verify-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(
+        135deg,
+        rgba(201, 169, 106, 0.56),
+        rgba(255, 255, 255, 0.08),
+        rgba(201, 169, 106, 0.22)
+      );
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    .verification-hero::after,
+    .verify-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      opacity: 0.9;
+      filter: blur(10px);
+      background: radial-gradient(circle, rgba(201, 169, 106, 0.22), transparent 68%);
+    }
+
+    .verification-hero::after {
+      width: 165px;
+      height: 165px;
+      top: -28px;
+      right: -18px;
+    }
+
+    .verify-card::after {
+      width: 130px;
+      height: 130px;
+      top: -18px;
+      right: -14px;
+    }
+
+    .verification-hero:hover,
+    .verify-card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 28px 52px rgba(10, 25, 41, 0.24),
+        0 0 0 1px rgba(255,255,255,0.07) inset,
+        0 0 22px rgba(201, 169, 106, 0.12);
+    }
+
+    .verification-hero {
+      padding: 34px 30px;
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .verification-hero .eyebrow,
+    .verification-hero .page-title,
+    .verification-hero .page-intro,
+    .verify-card h2,
+    .verify-card p,
+    .verify-list,
+    .verify-card .btn {
+      position: relative;
+      z-index: 1;
+    }
+
+    .verification-hero .eyebrow {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .verification-hero .page-title,
+    .verify-card h2,
+    .verify-list strong {
+      color: #ffffff;
+    }
+
+    .verification-hero .page-intro,
+    .verify-card p,
+    .verify-list li {
+      color: rgba(255,255,255,0.92);
+    }
+
+    .verification-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .verify-card {
+      padding: 28px 24px;
+      height: 100%;
+    }
+
+    .verify-card h2 {
+      margin-bottom: 14px;
+    }
+
+    .verify-card p {
+      margin: 0 0 18px;
+    }
+
+    .verify-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .verify-list li {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    .verify-card .btn {
+      margin-top: 4px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .parallax-card {
+      transform: translate3d(0, 0, 0);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .parallax-card.is-visible {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+
+    @media (max-width: 900px) {
+      .verification-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .verification-hero,
+      .verify-card {
+        border-radius: 20px;
+      }
+
+      .verification-hero {
+        padding: 28px 22px;
+      }
+
+      .verify-card {
+        padding: 24px 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .verification-hero,
+      .verify-card {
+        border-radius: 18px;
+      }
+
+      .verification-hero {
+        padding: 24px 18px;
+      }
+
+      .verify-card {
+        padding: 22px 18px;
+      }
+
+      .verification-hero::after,
+      .verify-card::after {
+        width: 105px;
+        height: 105px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .parallax-card,
+      .verification-hero,
+      .verify-card {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -21,26 +280,28 @@
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
 
       <nav class="site-nav">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="verification.html" class="active">Verification</a>
-  <a href="join-us.html">Join Us</a>
-  <a href="contact.html" class="nav-cta">Schedule a Free Review</a>
-</nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="verification.html" class="active">Verification</a>
+        <a href="join-us.html">Join Us</a>
+        <a href="contact.html" class="nav-cta">Schedule a Free Review</a>
+      </nav>
     </div>
   </header>
 
-  <main class="section">
+  <main class="section verification-page">
     <div class="container narrow">
-      <p class="eyebrow">Identity & license verification</p>
-      <h1 class="page-title">Agent Verification</h1>
-      <p class="page-intro">
-        This page is provided to help you verify that you are working with a licensed and legitimate insurance professional.
-      </p>
+      <div class="verification-hero reveal is-visible parallax-card" data-parallax-speed="0.10">
+        <p class="eyebrow">Identity & license verification</p>
+        <h1 class="page-title">Agent Verification</h1>
+        <p class="page-intro">
+          This page is provided to help you verify that you are working with a licensed and legitimate insurance professional.
+        </p>
+      </div>
     </div>
 
     <div class="container verification-grid">
-      <div class="verify-card">
+      <div class="verify-card reveal is-visible parallax-card" data-parallax-speed="0.11">
         <h2>Agent Information</h2>
         <ul class="verify-list">
           <li><strong>Agent Name:</strong> Joey Lombrana</li>
@@ -51,7 +312,7 @@
         </ul>
       </div>
 
-      <div class="verify-card">
+      <div class="verify-card reveal is-visible delay-1 parallax-card" data-parallax-speed="0.12">
         <h2>Verify Through the State</h2>
         <p>
           You can verify license status directly through the California Department of Insurance.
@@ -68,7 +329,7 @@
     </div>
 
     <div class="container narrow section-sm">
-      <div class="verify-card">
+      <div class="verify-card reveal parallax-card" data-parallax-speed="0.10">
         <h2>Why Verification Matters</h2>
         <p>
           Working with a licensed agent helps ensure that you are receiving accurate and compliant information, that your options are legitimate and regulated, and that your personal information is handled properly.
@@ -81,14 +342,14 @@
     <div class="container footer-inner">
       <p>© <span id="year"></span> The Lombraña Agency, operated by Fog Valley Media LLC. All rights reserved.</p>
       <nav class="footer-nav">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="verification.html">Verification</a>
-  <a href="join-us.html">Join Us</a>
-  <a href="contact.html">Contact</a>
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms & Conditions</a>
-</nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="verification.html">Verification</a>
+        <a href="join-us.html">Join Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+      </nav>
       <a
         class="social-link"
         href="https://www.facebook.com/profile.php?id=61577456360968"
@@ -103,5 +364,57 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealItems = document.querySelectorAll(".reveal:not(.is-visible)");
+      const parallaxCards = document.querySelectorAll(".parallax-card");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.14
+      });
+
+      revealItems.forEach((item) => observer.observe(item));
+
+      if (!reducedMotion && parallaxCards.length) {
+        let ticking = false;
+
+        const updateParallax = () => {
+          parallaxCards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const speed = parseFloat(card.dataset.parallaxSpeed || "0.12");
+            const viewportCenter = window.innerHeight / 2;
+            const cardCenter = rect.top + rect.height / 2;
+            const distance = cardCenter - viewportCenter;
+            const offset = Math.max(Math.min(distance * speed, 14), -14);
+
+            if (card.classList.contains("is-visible")) {
+              card.style.transform = `translate3d(0, ${offset}px, 0)`;
+            }
+          });
+
+          ticking = false;
+        };
+
+        const requestTick = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        };
+
+        updateParallax();
+        window.addEventListener("scroll", requestTick, { passive: true });
+        window.addEventListener("resize", requestTick);
+      }
+    });
+  </script>
 </body>
 </html>
