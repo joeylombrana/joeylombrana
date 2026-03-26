@@ -106,11 +106,12 @@
       z-index: 1;
     }
 
-    .join-copy::before {
+    .join-copy::before,
+    .join-cta-panel::before {
       content: "";
       position: absolute;
       inset: -1px;
-      border-radius: 18px;
+      border-radius: inherit;
       padding: 1px;
       background: linear-gradient(
         135deg,
@@ -127,18 +128,22 @@
       opacity: 0.85;
     }
 
-    .join-copy::after {
+    .join-copy::after,
+    .join-cta-panel::after {
       content: "";
       position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      opacity: 0.9;
+      filter: blur(10px);
+    }
+
+    .join-copy::after {
       width: 140px;
       height: 140px;
       top: -30px;
       right: -24px;
-      border-radius: 999px;
       background: radial-gradient(circle, rgba(201, 169, 106, 0.22), transparent 68%);
-      filter: blur(10px);
-      pointer-events: none;
-      opacity: 0.9;
     }
 
     .join-copy:hover {
@@ -213,23 +218,58 @@
     }
 
     .join-cta-panel {
+      position: relative;
       text-align: center;
       padding: 34px 28px;
       border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,243,234,0.96));
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-hover);
+      background: linear-gradient(180deg, rgba(18, 48, 74, 0.96), rgba(18, 48, 74, 0.88));
+      color: #ffffff;
+      box-shadow:
+        0 24px 46px rgba(10, 25, 41, 0.24),
+        0 0 0 1px rgba(255,255,255,0.05) inset;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+      overflow: hidden;
+    }
+
+    .join-cta-panel::after {
+      width: 180px;
+      height: 180px;
+      top: -40px;
+      left: -30px;
+      background: radial-gradient(circle, rgba(201, 169, 106, 0.22), transparent 68%);
+    }
+
+    .join-cta-panel:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 28px 52px rgba(10, 25, 41, 0.28),
+        0 0 0 1px rgba(255,255,255,0.07) inset,
+        0 0 24px rgba(201, 169, 106, 0.12);
+    }
+
+    .join-cta-panel h2,
+    .join-cta-panel .page-intro,
+    .join-cta-panel .join-disclaimer,
+    .join-cta-panel .btn {
+      position: relative;
+      z-index: 1;
+    }
+
+    .join-cta-panel h2 {
+      color: #ffffff;
     }
 
     .join-cta-panel .page-intro {
       max-width: 58ch;
       margin-left: auto;
       margin-right: auto;
+      color: rgba(255, 255, 255, 0.92);
     }
 
     .join-disclaimer {
       margin-top: 18px;
-      color: var(--text-soft);
+      color: rgba(255, 255, 255, 0.78);
       font-size: 0.9rem;
     }
 
@@ -281,6 +321,13 @@
         top: -18px;
         right: -14px;
       }
+
+      .join-cta-panel::after {
+        width: 130px;
+        height: 130px;
+        top: -24px;
+        left: -18px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -314,7 +361,8 @@
       .reveal,
       .parallax-card,
       .join-image-frame,
-      .join-copy {
+      .join-copy,
+      .join-cta-panel {
         transition: none !important;
         transform: none !important;
       }
@@ -442,7 +490,7 @@
 
     <section class="join-section">
       <div class="container narrow">
-        <div class="join-cta-panel reveal">
+        <div class="join-cta-panel reveal parallax-card" data-parallax-speed="0.10">
           <h2>Ready to Take the Next Step?</h2>
           <p class="page-intro">
             If you're motivated, coachable, and ready to build something meaningful, we’d love to connect with you.
