@@ -327,15 +327,18 @@ p {
 
 .art-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
 }
 
 .art-card {
   position: relative;
-  min-height: 220px;
-  border-radius: var(--radius);
+  height: 180px; /* ALL SAME SIZE */
+  border-radius: 18px;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
   box-shadow: var(--shadow);
   transition: transform var(--transition), box-shadow var(--transition);
 }
