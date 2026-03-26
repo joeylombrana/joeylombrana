@@ -77,6 +77,8 @@
 
     .join-section {
       padding: 54px 0;
+      position: relative;
+      overflow: visible;
     }
 
     .join-section-alt {
@@ -90,14 +92,76 @@
       align-items: center;
     }
 
+    .join-copy {
+      position: relative;
+      background: linear-gradient(180deg, rgba(18, 48, 74, 0.92), rgba(18, 48, 74, 0.85));
+      padding: 26px 24px;
+      border-radius: 18px;
+      color: #ffffff;
+      box-shadow:
+        0 18px 38px rgba(10, 25, 41, 0.18),
+        0 0 0 1px rgba(255,255,255,0.05) inset;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+      z-index: 1;
+    }
+
+    .join-copy::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 18px;
+      padding: 1px;
+      background: linear-gradient(
+        135deg,
+        rgba(201, 169, 106, 0.55),
+        rgba(255, 255, 255, 0.08),
+        rgba(201, 169, 106, 0.22)
+      );
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    .join-copy::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      top: -30px;
+      right: -24px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(201, 169, 106, 0.22), transparent 68%);
+      filter: blur(10px);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .join-copy:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 24px 44px rgba(10, 25, 41, 0.24),
+        0 0 0 1px rgba(255,255,255,0.07) inset,
+        0 0 22px rgba(201, 169, 106, 0.12);
+    }
+
     .join-copy h2 {
       margin-bottom: 14px;
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
     }
 
     .join-copy p {
-      color: var(--text-soft);
+      color: rgba(255, 255, 255, 0.92);
       margin: 0;
       font-size: 1.03rem;
+      position: relative;
+      z-index: 1;
     }
 
     .join-image-wrap {
@@ -181,6 +245,18 @@
       transform: translateY(0);
     }
 
+    .parallax-card {
+      transform: translate3d(0, 0, 0);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .parallax-card.is-visible {
+      transform: translate3d(0, 0, 0);
+    }
+
     .delay-1 { transition-delay: 0.08s; }
     .delay-2 { transition-delay: 0.16s; }
     .delay-3 { transition-delay: 0.24s; }
@@ -197,6 +273,13 @@
 
       .join-copy {
         text-align: center;
+      }
+
+      .join-copy::after {
+        width: 110px;
+        height: 110px;
+        top: -18px;
+        right: -14px;
       }
     }
 
@@ -220,6 +303,20 @@
 
       .join-cta-panel {
         padding: 24px 18px;
+      }
+
+      .join-copy {
+        padding: 22px 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .parallax-card,
+      .join-image-frame,
+      .join-copy {
+        transition: none !important;
+        transform: none !important;
       }
     }
   </style>
@@ -277,7 +374,7 @@
 
     <section class="join-section" id="next-step">
       <div class="container join-grid">
-        <div class="join-copy reveal">
+        <div class="join-copy reveal parallax-card" data-parallax-speed="0.12">
           <h2>Work From Home Flexibility</h2>
           <p>
             Build your business from anywhere. Set your own schedule, take control of your time, and create a career that fits your life — not the other way around.
@@ -300,7 +397,7 @@
           </div>
         </div>
 
-        <div class="join-copy reveal delay-1">
+        <div class="join-copy reveal delay-1 parallax-card" data-parallax-speed="0.15">
           <h2>Time With the People Who Matter</h2>
           <p>
             This career isn’t just about income — it’s about freedom. More time with your family, more control over your life, and the ability to be present for the moments that matter most.
@@ -311,7 +408,7 @@
 
     <section class="join-section">
       <div class="container join-grid">
-        <div class="join-copy reveal">
+        <div class="join-copy reveal parallax-card" data-parallax-speed="0.13">
           <h2>Travel &amp; Lifestyle Freedom</h2>
           <p>
             When your income is not tied to a desk, your lifestyle opens up. Whether it’s travel, experiences, or simply living on your terms — this path creates options.
@@ -334,7 +431,7 @@
           </div>
         </div>
 
-        <div class="join-copy reveal delay-1">
+        <div class="join-copy reveal delay-1 parallax-card" data-parallax-speed="0.14">
           <h2>Build Real Income</h2>
           <p>
             This is a performance-based opportunity with real earning potential. With the right effort and consistency, you can build a meaningful income and long-term financial stability.
@@ -393,6 +490,8 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const revealItems = document.querySelectorAll(".reveal:not(.is-visible)");
+      const parallaxCards = document.querySelectorAll(".parallax-card");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -406,6 +505,38 @@
       });
 
       revealItems.forEach((item) => observer.observe(item));
+
+      if (!reducedMotion && parallaxCards.length) {
+        let ticking = false;
+
+        const updateParallax = () => {
+          parallaxCards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const speed = parseFloat(card.dataset.parallaxSpeed || "0.12");
+            const viewportCenter = window.innerHeight / 2;
+            const cardCenter = rect.top + rect.height / 2;
+            const distance = cardCenter - viewportCenter;
+            const offset = Math.max(Math.min(distance * speed, 14), -14);
+
+            if (card.classList.contains("is-visible")) {
+              card.style.transform = `translate3d(0, ${offset}px, 0)`;
+            }
+          });
+
+          ticking = false;
+        };
+
+        const requestTick = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        };
+
+        updateParallax();
+        window.addEventListener("scroll", requestTick, { passive: true });
+        window.addEventListener("resize", requestTick);
+      }
     });
   </script>
 
