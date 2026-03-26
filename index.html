@@ -207,14 +207,28 @@
       margin-top: 24px;
     }
 
+    .hero-visual {
+      width: 100%;
+    }
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
     .art-card {
       position: relative;
+      height: 180px;
       overflow: hidden;
       border-radius: 22px;
       box-shadow:
         0 18px 38px rgba(10, 25, 41, 0.16),
         0 0 0 1px rgba(255,255,255,0.06) inset;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .art-card:hover {
@@ -247,12 +261,30 @@
     }
 
     .art-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 22px 20px 18px;
       background: linear-gradient(180deg, rgba(18, 48, 74, 0.18), rgba(18, 48, 74, 0.72));
+      z-index: 1;
     }
 
     .art-overlay strong,
     .art-overlay span {
       color: #ffffff;
+      display: block;
+    }
+
+    .art-overlay strong {
+      margin-bottom: 4px;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .art-overlay span {
+      font-size: 0.95rem;
+      line-height: 1.35;
     }
 
     .why-here .container.narrow {
@@ -339,7 +371,8 @@
       .hero-copy,
       .why-here .container.narrow,
       .about-copy,
-      .trust-card {
+      .trust-card,
+      .art-card {
         border-radius: 20px;
       }
 
@@ -360,13 +393,18 @@
         top: -20px;
         right: -12px;
       }
+
+      .art-card {
+        height: 170px;
+      }
     }
 
     @media (max-width: 640px) {
       .hero-copy,
       .why-here .container.narrow,
       .about-copy,
-      .trust-card {
+      .trust-card,
+      .art-card {
         border-radius: 18px;
       }
 
@@ -386,6 +424,14 @@
       .trust-card::after {
         width: 100px;
         height: 100px;
+      }
+
+      .art-card {
+        height: 155px;
+      }
+
+      .art-overlay {
+        padding: 18px 16px 14px;
       }
     }
 
@@ -446,32 +492,32 @@
           </div>
         </div>
 
-       <div class="hero-visual">
-  <div class="art-grid">
+        <div class="hero-visual reveal is-visible delay-1">
+          <div class="art-grid">
 
-    <div class="art-card" style="background-image: url('suburban.jpg');">
-      <div class="art-overlay">
-        <strong>Suburban Family Homes</strong>
-        <span>Protection that fits real family life</span>
-      </div>
-    </div>
+            <div class="art-card" style="background-image: url('suburban.jpg');">
+              <div class="art-overlay">
+                <strong>Suburban Family Homes</strong>
+                <span>Protection that fits real family life</span>
+              </div>
+            </div>
 
-    <div class="art-card" style="background-image: url('starter.jpg');">
-      <div class="art-overlay">
-        <strong>Starter Homes</strong>
-        <span>Affordable protection for new beginnings</span>
-      </div>
-    </div>
+            <div class="art-card" style="background-image: url('starter.jpg');">
+              <div class="art-overlay">
+                <strong>Starter Homes</strong>
+                <span>Affordable protection for new beginnings</span>
+              </div>
+            </div>
 
-    <div class="art-card" style="background-image: url('townhome.jpg');">
-      <div class="art-overlay">
-        <strong>Townhomes & Upscale Properties</strong>
-        <span>Planning for every stage of homeownership</span>
-      </div>
-    </div>
+            <div class="art-card" style="background-image: url('townhome.jpg');">
+              <div class="art-overlay">
+                <strong>Townhomes &amp; Upscale Properties</strong>
+                <span>Planning for every stage of homeownership</span>
+              </div>
+            </div>
 
-  </div>
-</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -550,7 +596,7 @@
         <a href="verification.html">Verification</a>
         <a href="contact.html">Contact</a>
         <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
       </nav>
       <a
         class="social-link"
