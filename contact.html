@@ -7,432 +7,6 @@
   <meta name="description" content="Start your protection review with The Lombraña Agency." />
   <link rel="stylesheet" href="styles.css?v=2" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-  <style>
-    .contact-page {
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at top right, rgba(201, 169, 106, 0.16), transparent 28%),
-        radial-gradient(circle at left center, rgba(18, 48, 74, 0.10), transparent 30%);
-    }
-
-    .contact-page::before,
-    .contact-page::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      pointer-events: none;
-      filter: blur(24px);
-      opacity: 0.8;
-    }
-
-    .contact-page::before {
-      width: 220px;
-      height: 220px;
-      top: -60px;
-      right: -60px;
-      background: rgba(201, 169, 106, 0.14);
-    }
-
-    .contact-page::after {
-      width: 180px;
-      height: 180px;
-      left: -36px;
-      bottom: 90px;
-      background: rgba(18, 48, 74, 0.10);
-    }
-
-    .contact-hero,
-    .form-shell,
-    .thank-you {
-      position: relative;
-      z-index: 1;
-      background: linear-gradient(180deg, rgba(18, 48, 74, 0.95), rgba(18, 48, 74, 0.87));
-      color: #ffffff;
-      border-radius: 24px;
-      box-shadow:
-        0 22px 44px rgba(10, 25, 41, 0.18),
-        0 0 0 1px rgba(255,255,255,0.05) inset;
-      overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      will-change: transform;
-    }
-
-    .contact-hero::before,
-    .form-shell::before,
-    .thank-you::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(
-        135deg,
-        rgba(201, 169, 106, 0.56),
-        rgba(255, 255, 255, 0.08),
-        rgba(201, 169, 106, 0.22)
-      );
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      opacity: 0.85;
-    }
-
-    .contact-hero::after,
-    .form-shell::after,
-    .thank-you::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      pointer-events: none;
-      opacity: 0.9;
-      filter: blur(10px);
-      background: radial-gradient(circle, rgba(201, 169, 106, 0.22), transparent 68%);
-    }
-
-    .contact-hero::after {
-      width: 165px;
-      height: 165px;
-      top: -28px;
-      right: -18px;
-    }
-
-    .form-shell::after {
-      width: 150px;
-      height: 150px;
-      top: -20px;
-      right: -16px;
-    }
-
-    .thank-you::after {
-      width: 130px;
-      height: 130px;
-      top: -14px;
-      right: -10px;
-    }
-
-    .contact-hero:hover,
-    .form-shell:hover,
-    .thank-you:hover {
-      transform: translateY(-4px);
-      box-shadow:
-        0 28px 52px rgba(10, 25, 41, 0.24),
-        0 0 0 1px rgba(255,255,255,0.07) inset,
-        0 0 22px rgba(201, 169, 106, 0.12);
-    }
-
-    .contact-hero {
-      padding: 34px 30px;
-      text-align: center;
-      margin-bottom: 34px;
-    }
-
-    .form-shell {
-      padding: 30px 26px;
-    }
-
-    .thank-you {
-      padding: 28px 24px;
-      margin-top: 22px;
-    }
-
-    .contact-hero .eyebrow,
-    .contact-hero .page-title,
-    .contact-hero .page-intro,
-    .review-form,
-    .thank-you h2,
-    .thank-you p {
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact-hero .eyebrow {
-      color: rgba(255,255,255,0.78);
-    }
-
-    .contact-hero .page-title,
-    .thank-you h2,
-    .field label,
-    .checkbox-group legend,
-    .captcha-wrap label,
-    .consent-label strong {
-      color: #ffffff;
-    }
-
-    .contact-hero .page-intro,
-    .thank-you p,
-    .consent-label span,
-    .consent-note,
-    .privacy-link,
-    .checkbox-group label,
-    .legal-note {
-      color: rgba(255,255,255,0.92);
-    }
-
-    .review-form {
-      width: 100%;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px 18px;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .field-full {
-      grid-column: 1 / -1;
-    }
-
-    .field label,
-    .checkbox-group legend,
-    .captcha-wrap label {
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      padding: 13px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.10);
-      color: #ffffff;
-      outline: none;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
-    }
-
-    .field input::placeholder,
-    .field textarea::placeholder {
-      color: rgba(255,255,255,0.55);
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: rgba(201, 169, 106, 0.7);
-      box-shadow: 0 0 0 3px rgba(201, 169, 106, 0.18);
-      background: rgba(255,255,255,0.14);
-    }
-
-    .checkbox-group {
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 18px;
-      padding: 18px 16px;
-      background: rgba(255,255,255,0.07);
-    }
-
-    .checkbox-group legend {
-      padding: 0 8px;
-      margin-left: -8px;
-    }
-
-    .checkbox-group label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-
-    .checkbox-group input[type="checkbox"],
-    .consent-label input[type="checkbox"] {
-      accent-color: #c9a96a;
-      width: 18px;
-      height: 18px;
-      flex: 0 0 auto;
-    }
-
-    .legal-note {
-      grid-column: 1 / -1;
-      font-size: 0.92rem;
-      line-height: 1.6;
-      margin: 0;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .consent-wrap {
-      padding: 18px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .consent-label {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      cursor: pointer;
-    }
-
-    .consent-label span {
-      line-height: 1.65;
-      font-size: 0.95rem;
-    }
-
-    .consent-note {
-      margin: 12px 0 0;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.76);
-    }
-
-    .privacy-link {
-      margin: 10px 0 0;
-      font-size: 0.92rem;
-    }
-
-    .privacy-link a {
-      color: #ffffff;
-      text-decoration: underline;
-      text-decoration-color: rgba(201, 169, 106, 0.75);
-      text-underline-offset: 3px;
-    }
-
-    .captcha-wrap {
-      padding: 18px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .captcha-wrap .cf-turnstile {
-      margin-top: 10px;
-    }
-
-    .honeypot {
-      position: absolute !important;
-      left: -9999px !important;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    .btn-full {
-      width: 100%;
-      margin-top: 22px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .thank-you.hidden {
-      display: none;
-    }
-
-    .thank-you h2 {
-      margin-bottom: 14px;
-    }
-
-    .thank-you p:last-child {
-      margin-bottom: 0;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-      will-change: opacity, transform;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .parallax-card {
-      transform: translate3d(0, 0, 0);
-      transition:
-        opacity 0.7s ease,
-        transform 0.7s ease,
-        box-shadow 0.35s ease;
-    }
-
-    .parallax-card.is-visible {
-      transform: translate3d(0, 0, 0);
-    }
-
-    .delay-1 { transition-delay: 0.08s; }
-
-    @media (max-width: 900px) {
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-hero,
-      .form-shell,
-      .thank-you {
-        border-radius: 20px;
-      }
-
-      .contact-hero {
-        padding: 28px 22px;
-      }
-
-      .form-shell {
-        padding: 24px 20px;
-      }
-
-      .thank-you {
-        padding: 24px 20px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .contact-hero,
-      .form-shell,
-      .thank-you {
-        border-radius: 18px;
-      }
-
-      .contact-hero {
-        padding: 24px 18px;
-      }
-
-      .form-shell {
-        padding: 22px 18px;
-      }
-
-      .thank-you {
-        padding: 22px 18px;
-      }
-
-      .contact-hero::after,
-      .form-shell::after,
-      .thank-you::after {
-        width: 105px;
-        height: 105px;
-      }
-
-      .consent-label {
-        gap: 10px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal,
-      .parallax-card,
-      .contact-hero,
-      .form-shell,
-      .thank-you {
-        transition: none !important;
-        transform: none !important;
-      }
-    }
-  </style>
 </head>
 <body>
   <header class="site-header">
@@ -448,45 +22,43 @@
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
 
       <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="verification.html">Verification</a>
-        <a href="join-us.html">Join Us</a>
-        <a href="contact.html" class="active nav-cta">Schedule a Free Review</a>
-      </nav>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="verification.html">Verification</a>
+  <a href="join-us.html">Join Us</a>
+  <a href="contact.html" class="active nav-cta">Schedule a Free Review</a>
+</nav>
     </div>
   </header>
 
-  <main class="section contact-page">
+  <main class="section">
     <div class="container narrow">
-      <div class="contact-hero reveal is-visible parallax-card" data-parallax-speed="0.10">
-        <p class="eyebrow">Confidential review request</p>
-        <h1 class="page-title">Start Your Protection Review</h1>
-        <p class="page-intro">
-          Please complete the form below so we can better understand your situation and prepare the most appropriate options for you.
-        </p>
-      </div>
+      <p class="eyebrow">Confidential review request</p>
+      <h1 class="page-title">Start Your Protection Review</h1>
+      <p class="page-intro">
+        Please complete the form below so we can better understand your situation and prepare the most appropriate options for you.
+      </p>
     </div>
 
-    <div class="container form-shell reveal is-visible delay-1 parallax-card" data-parallax-speed="0.11">
+    <div class="container form-shell">
       <form id="reviewForm" class="review-form">
         <div class="form-grid">
-
+          
           <div class="field">
-            <label for="firstName">First Name</label>
-            <input id="firstName" name="firstName" type="text" required />
+          <label for="firstName">First Name</label>
+          <input id="firstName" name="firstName" type="text" required />
           </div>
-
-          <div class="field">
-            <label for="mi">MI</label>
-            <input id="mi" name="mi" type="text" maxlength="1" />
+        
+        <div class="field">
+          <label for="mi">MI</label>
+          <input id="mi" name="mi" type="text" maxlength="1" />
           </div>
 
           <div class="field">
             <label for="lastName">Last Name</label>
             <input id="lastName" name="lastName" type="text" required />
           </div>
-
+          
           <div class="field">
             <label for="age">Age</label>
             <input id="age" name="age" type="number" min="18" max="120" required />
@@ -563,9 +135,9 @@
             </label>
           </fieldset>
 
-          <p class="legal-note">
-            The Lombraña Agency is operated by Fog Valley Media LLC. We are an independent life insurance agency and work with multiple insurance carriers. We are not affiliated with or endorsed by any government agency. Submitting this form is a request for information only and does not obligate you to purchase any product or service.
-          </p>
+          <p style="font-size: 0.9rem; color: #555; margin-bottom: 16px;">
+  The Lombraña Agency is operated by Fog Valley Media LLC. We are an independent life insurance agency and work with multiple insurance carriers. We are not affiliated with or endorsed by any government agency. Submitting this form is a request for information only and does not obligate you to purchase any product or service.
+</p>
 
           <div class="field field-full consent-wrap">
             <label class="consent-label">
@@ -619,7 +191,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> The Lombraña Agency, operated by Fog Valley Media LLC. All rights reserved.</p>
+     <p>© <span id="year"></span> The Lombraña Agency, operated by Fog Valley Media LLC. All rights reserved.</p>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -650,57 +222,5 @@
     })();
   </script>
   <script src="script.js?v=27"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const revealItems = document.querySelectorAll(".reveal:not(.is-visible)");
-      const parallaxCards = document.querySelectorAll(".parallax-card");
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.14
-      });
-
-      revealItems.forEach((item) => observer.observe(item));
-
-      if (!reducedMotion && parallaxCards.length) {
-        let ticking = false;
-
-        const updateParallax = () => {
-          parallaxCards.forEach((card) => {
-            const rect = card.getBoundingClientRect();
-            const speed = parseFloat(card.dataset.parallaxSpeed || "0.12");
-            const viewportCenter = window.innerHeight / 2;
-            const cardCenter = rect.top + rect.height / 2;
-            const distance = cardCenter - viewportCenter;
-            const offset = Math.max(Math.min(distance * speed, 14), -14);
-
-            if (card.classList.contains("is-visible")) {
-              card.style.transform = `translate3d(0, ${offset}px, 0)`;
-            }
-          });
-
-          ticking = false;
-        };
-
-        const requestTick = () => {
-          if (!ticking) {
-            window.requestAnimationFrame(updateParallax);
-            ticking = true;
-          }
-        };
-
-        updateParallax();
-        window.addEventListener("scroll", requestTick, { passive: true });
-        window.addEventListener("resize", requestTick);
-      }
-    });
-  </script>
 </body>
 </html>
