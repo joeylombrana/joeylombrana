@@ -4,419 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join Us | The Lombraña Agency</title>
-  <meta
-    name="description"
-    content="Explore a remote work-from-home opportunity with The Lombraña Agency and learn what it looks like to build a meaningful insurance career."
-  />
-  <link rel="stylesheet" href="styles.css?v=2" />
-
-  <style>
-    /* JOIN US PAGE ONLY */
-    .join-hero {
-      position: relative;
-      overflow: hidden;
-      padding: 68px 0 48px;
-      background:
-        radial-gradient(circle at top right, rgba(201, 169, 106, 0.20), transparent 34%),
-        radial-gradient(circle at left center, rgba(28, 71, 104, 0.13), transparent 30%);
-    }
-
-    .join-hero::before,
-    .join-hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(24px);
-      pointer-events: none;
-      opacity: 0.7;
-    }
-
-    .join-hero::before {
-      width: 220px;
-      height: 220px;
-      background: rgba(201, 169, 106, 0.16);
-      top: -50px;
-      right: -60px;
-    }
-
-    .join-hero::after {
-      width: 180px;
-      height: 180px;
-      background: rgba(18, 48, 74, 0.10);
-      bottom: 10px;
-      left: -40px;
-    }
-
-    .join-hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .join-hero-copy {
-      position: relative;
-      z-index: 1;
-    }
-
-    .join-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 0.86rem;
-      margin-bottom: 18px;
-    }
-
-    .join-lead {
-      font-size: 1.16rem;
-      color: var(--text);
-      margin: 0 0 14px;
-      max-width: 60ch;
-    }
-
-    .join-support {
-      color: var(--text-soft);
-      margin: 0 0 20px;
-      max-width: 62ch;
-    }
-
-    .join-proof-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 22px 0 26px;
-    }
-
-    .join-proof-pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid var(--border);
-      color: var(--navy);
-      font-weight: 700;
-      box-shadow: var(--shadow);
-      font-size: 0.92rem;
-    }
-
-    .join-hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .join-hero-note {
-      font-size: 0.94rem;
-      color: var(--text-soft);
-      margin: 0;
-    }
-
-    .join-hero-media {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-image-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 26px;
-      box-shadow: var(--shadow-hover);
-      border: 1px solid rgba(18, 48, 74, 0.12);
-      background: #fff;
-      transform: rotate(-1deg);
-    }
-
-    .hero-image-card img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-    }
-
-    .hero-image-badge {
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(18, 48, 74, 0.84);
-      color: #fff;
-      max-width: 78%;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-image-badge strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .hero-image-badge span {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.9);
-    }
-
-    .join-section {
-      padding: 34px 0;
-    }
-
-    .join-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .join-info-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .join-info-card::before {
-      content: "";
-      position: absolute;
-      inset: auto auto 0 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--soft-gold), rgba(18, 48, 74, 0.55));
-    }
-
-    .join-info-card p:last-child,
-    .join-info-card ul:last-child {
-      margin-bottom: 0;
-    }
-
-    .join-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--text-soft);
-    }
-
-    .join-list li + li {
-      margin-top: 10px;
-    }
-
-    .join-visual-story {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-    .story-card {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .story-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .story-card img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-    }
-
-    .story-card-body {
-      padding: 18px 18px 20px;
-    }
-
-    .story-card-body h3 {
-      margin-bottom: 8px;
-    }
-
-    .story-card-body p {
-      margin: 0;
-      color: var(--text-soft);
-    }
-
-    .join-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 22px;
-    }
-
-    .step-card {
-      background: rgba(255,255,255,0.92);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      position: relative;
-    }
-
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--soft-gold), var(--gold-2));
-      color: #1f2430;
-      font-weight: 800;
-      margin-bottom: 14px;
-      box-shadow: var(--shadow);
-    }
-
-    .step-card p {
-      color: var(--text-soft);
-      margin-bottom: 0;
-    }
-
-    .remote-banner {
-      background: linear-gradient(135deg, rgba(18, 48, 74, 0.98), rgba(28, 71, 104, 0.95));
-      color: #fff;
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow-hover);
-      position: relative;
-      overflow: hidden;
-      margin-top: 12px;
-    }
-
-    .remote-banner::before {
-      content: "";
-      position: absolute;
-      right: -30px;
-      top: -30px;
-      width: 160px;
-      height: 160px;
-      border-radius: 999px;
-      background: rgba(201, 169, 106, 0.18);
-      filter: blur(10px);
-    }
-
-    .remote-banner h2,
-    .remote-banner p,
-    .remote-banner li {
-      position: relative;
-      z-index: 1;
-    }
-
-    .remote-banner h2 {
-      color: #fff;
-    }
-
-    .remote-banner p {
-      color: rgba(255,255,255,0.88);
-    }
-
-    .remote-list {
-      margin: 14px 0 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,0.88);
-    }
-
-    .remote-list li + li {
-      margin-top: 8px;
-    }
-
-    .join-cta-panel {
-      margin-top: 28px;
-      padding: 30px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,243,234,0.96));
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-hover);
-      text-align: center;
-    }
-
-    .join-cta-panel p {
-      color: var(--text-soft);
-      max-width: 58ch;
-      margin: 0 auto 16px;
-    }
-
-    .join-cta-actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .micro-disclaimer {
-      font-size: 0.88rem;
-      color: var(--text-soft);
-      margin-top: 16px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-1 { transition-delay: 0.08s; }
-    .delay-2 { transition-delay: 0.16s; }
-    .delay-3 { transition-delay: 0.24s; }
-
-    @media (max-width: 980px) {
-      .join-hero-grid,
-      .join-grid-2,
-      .join-visual-story,
-      .join-steps {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image-card {
-        transform: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .join-hero {
-        padding-top: 34px;
-      }
-
-      .join-hero-actions,
-      .join-cta-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-image-badge {
-        max-width: calc(100% - 36px);
-      }
-
-      .join-info-card,
-      .step-card,
-      .join-cta-panel,
-      .remote-banner {
-        padding: 20px;
-      }
-    }
-  </style>
+  <meta name="description" content="Build a career as a licensed life insurance agent. Work from home, create income, and protect what matters most." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="index.html" class="brand" aria-label="The Lombraña Agency home">
+      <a href="index.html" class="brand">
         <img src="Lombrana Agency.png" alt="The Lombraña Agency logo" class="brand-logo" />
         <div class="brand-text">
           <span class="brand-name">The Lombraña Agency</span>
@@ -424,267 +21,137 @@
         </div>
       </a>
 
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <button class="menu-toggle">☰</button>
 
       <nav class="site-nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="verification.html">Verification</a>
-        <a href="contact.html">Schedule a Free Review</a>
-        <a href="join-us.html" class="active nav-cta">Join Us</a>
+        <a href="join-us.html" class="active">Join Us</a>
+        <a href="contact.html" class="nav-cta">Schedule a Free Review</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="join-hero">
-      <div class="container join-hero-grid">
-        <div class="join-hero-copy reveal is-visible">
-          <p class="join-kicker">Remote Opportunity • Work From Home • Build Something Real</p>
+  <!-- HERO -->
+  <section class="section hero">
+    <div class="container narrow">
+      <p class="eyebrow">Build a career with purpose</p>
+      <h1 class="page-title">Work From Home. Build Real Income. Make an Impact.</h1>
+      <p class="page-intro">
+        This is an opportunity to create a flexible, remote career helping families protect what matters most — while building your own financial future.
+      </p>
 
-          <h1>Build a Career That Fits Your Life — Not the Other Way Around</h1>
+      <a href="lead-system.html" class="btn btn-primary">Apply Now</a>
+    </div>
+  </section>
 
-          <p class="join-lead">
-            The Lombraña Agency is looking for people who want more flexibility, more purpose, and more control over their future through a remote insurance career.
-          </p>
+  <!-- SECTION 1 -->
+  <section class="section">
+    <div class="container grid-2">
 
-          <p class="join-support">
-            This is a work-from-home opportunity designed for people who are coachable, driven, and ready to build a real business while still being present for the people who matter most.
-          </p>
-
-          <div class="join-proof-row">
-            <span class="join-proof-pill">Remote / Home-Based</span>
-            <span class="join-proof-pill">Flexible Schedule</span>
-            <span class="join-proof-pill">Performance-Based Growth</span>
-            <span class="join-proof-pill">Licensing Path Available</span>
-          </div>
-
-          <div class="join-hero-actions">
-            <a href="agent-setup.html" class="btn btn-primary">Request More Information</a>
-            <a href="#how-it-works" class="btn btn-secondary">How It Works</a>
-          </div>
-
-          <p class="join-hero-note">
-            This page is intended for those interested in learning about a remote agent opportunity with The Lombraña Agency.
-          </p>
-        </div>
-
-        <div class="join-hero-media reveal delay-1 is-visible">
-          <div class="hero-image-card">
-            <img src="join-hero-home-office.png" alt="A father working from home while smiling at his daughter in a home office" />
-            <div class="hero-image-badge">
-              <strong>Work that supports your real life</strong>
-              <span>Build a professional path from home without losing sight of family.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="join-section">
-      <div class="container narrow reveal">
-        <p class="eyebrow">Why This Opportunity Matters</p>
-        <h2>For the Right Person, This Can Change More Than Just Income</h2>
-        <p class="page-intro">
-          Many people aren’t just looking for a job. They’re looking for a better way to live, a way to grow, and a path that offers more freedom without sacrificing responsibility.
+      <div>
+        <h2>Work From Home Flexibility</h2>
+        <p>
+          Build your business from anywhere. Set your own schedule, take control of your time, and create a career that fits your life — not the other way around.
         </p>
       </div>
 
-      <div class="container join-grid-2">
-        <div class="join-info-card reveal delay-1">
-          <h3>What makes this different</h3>
-          <ul class="join-list">
-            <li>You can build from home instead of being tied to a traditional office.</li>
-            <li>You have the opportunity to create flexible income around your actual life.</li>
-            <li>You are building a skill set that can grow over time, not just clocking hours.</li>
-            <li>You have the chance to help families make important protection decisions.</li>
-          </ul>
-        </div>
-
-        <div class="join-info-card reveal delay-2">
-          <h3>Who this is for</h3>
-          <ul class="join-list">
-            <li>People who are motivated and willing to learn.</li>
-            <li>Parents, caregivers, and professionals who want more flexibility.</li>
-            <li>Individuals looking for a remote work-from-home opportunity with long-term upside.</li>
-            <li>Those who want meaningful work, not just another temporary paycheck.</li>
-          </ul>
-        </div>
+      <div>
+        <img src="images/home-office-family.jpg" alt="Working from home with family" class="rounded-img" />
       </div>
-    </section>
 
-    <section class="join-section">
-      <div class="container">
-        <p class="eyebrow reveal">The Lifestyle Story</p>
-        <h2 class="reveal delay-1">What This Career Can Make Possible</h2>
+    </div>
+  </section>
 
-        <div class="join-visual-story">
-          <article class="story-card reveal">
-            <img src="join-hero-home-office.png" alt="Man working from home in front of his computer while his daughter shows him her doll" />
-            <div class="story-card-body">
-              <h3>Work From Home</h3>
-              <p>
-                Remote work creates a different kind of freedom. It allows you to build professionally while staying connected to your home life.
-              </p>
-            </div>
-          </article>
+  <!-- SECTION 2 -->
+  <section class="section alt">
+    <div class="container grid-2">
 
-          <article class="story-card reveal delay-1">
-            <img src="join-family-parents.png" alt="Young Asian woman spending quality time with her elderly parents outdoors" />
-            <div class="story-card-body">
-              <h3>Be Present for Family</h3>
-              <p>
-                Success means more when you actually have time and flexibility to show up for the people you love.
-              </p>
-            </div>
-          </article>
-
-          <article class="story-card reveal delay-2">
-            <img src="join-travel-italy.png" alt="Couple enjoying a relaxed vacation on a beach in Italy" />
-            <div class="story-card-body">
-              <h3>Freedom to Experience More</h3>
-              <p>
-                As your business grows, so can your ability to enjoy more of life — travel, time, and experiences that once felt out of reach.
-              </p>
-            </div>
-          </article>
-
-          <article class="story-card reveal delay-3">
-            <img src="join-financial-progress.png" alt="Confident Black man in business-casual attire stepping out of a modern home with coffee" />
-            <div class="story-card-body">
-              <h3>Real Financial Progress</h3>
-              <p>
-                Not flashy hype. Real growth, stronger confidence, and the kind of progress that shows up in everyday life.
-              </p>
-            </div>
-          </article>
-        </div>
+      <div>
+        <img src="images/family-care.jpg" alt="Spending time with family" class="rounded-img" />
       </div>
-    </section>
 
-    <section class="join-section">
-      <div class="container">
-        <div class="remote-banner reveal">
-          <p class="eyebrow" style="color: rgba(255,255,255,0.75);">Remote Work Opportunity</p>
-          <h2>Yes — This Is a Work-From-Home Role</h2>
-          <p>
-            One of the biggest advantages of this opportunity is flexibility. This is designed to be a remote, home-based role for people who want to build a business with more freedom and less dependence on a traditional office environment.
-          </p>
-          <ul class="remote-list">
-            <li>Work from your home office or wherever you are most productive.</li>
-            <li>Build around family responsibilities and your real schedule.</li>
-            <li>Create a professional path without being tied to a commute-driven lifestyle.</li>
-            <li>Use technology, communication skills, and consistency to grow.</li>
-          </ul>
-        </div>
+      <div>
+        <h2>Time With the People Who Matter</h2>
+        <p>
+          This career isn’t just about income — it’s about freedom. More time with your family, more control over your life, and the ability to be present for the moments that matter most.
+        </p>
       </div>
-    </section>
 
-    <section class="join-section" id="how-it-works">
-      <div class="container">
-        <p class="eyebrow reveal">How It Works</p>
-        <h2 class="reveal delay-1">A Simple Path to Explore the Opportunity</h2>
+    </div>
+  </section>
 
-        <div class="join-steps">
-          <div class="step-card reveal">
-            <span class="step-number">1</span>
-            <h3>Start the Conversation</h3>
-            <p>
-              Submit your information and share a little about your background, goals, and what kind of opportunity you’re looking for.
-            </p>
-          </div>
+  <!-- SECTION 3 -->
+  <section class="section">
+    <div class="container grid-2">
 
-          <div class="step-card reveal delay-1">
-            <span class="step-number">2</span>
-            <h3>Learn the Model</h3>
-            <p>
-              We’ll walk you through what the role looks like, what it takes to get licensed, and how the remote structure works.
-            </p>
-          </div>
-
-          <div class="step-card reveal delay-2">
-            <span class="step-number">3</span>
-            <h3>Decide If It Fits</h3>
-            <p>
-              This is about alignment, not pressure. If it makes sense for your goals and your season of life, we can discuss next steps.
-            </p>
-          </div>
-        </div>
+      <div>
+        <h2>Travel & Lifestyle Freedom</h2>
+        <p>
+          When your income is not tied to a desk, your lifestyle opens up. Whether it’s travel, experiences, or simply living on your terms — this path creates options.
+        </p>
       </div>
-    </section>
 
-    <section class="join-section">
-      <div class="container narrow">
-        <div class="join-cta-panel reveal">
-          <p class="eyebrow">Take the Next Step</p>
-          <h2>Interested in Becoming a Licensed Agent With The Lombraña Agency?</h2>
-          <p>
-            If you want to explore what this opportunity could look like for you, request more information and we’ll continue the conversation from there.
-          </p>
-
-          <div class="join-cta-actions">
-            <a href="agent-setup.html" class="btn btn-primary">Request Info</a>
-            <a href="https://calendar.app.google/Bgg1LjZbToPaidVu8" target="_blank" class="btn btn-secondary">Schedule a Time</a>
-          </div>
-
-          <p class="micro-disclaimer">
-            This page is intended to share a business opportunity overview. Results are not guaranteed and success depends on individual effort, licensing, training, consistency, and market factors.
-          </p>
-        </div>
+      <div>
+        <img src="images/travel-lifestyle.jpg" alt="Travel lifestyle freedom" class="rounded-img" />
       </div>
-    </section>
-  </main>
 
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="section alt">
+    <div class="container grid-2">
+
+      <div>
+        <img src="images/financial-success.jpg" alt="Financial success and independence" class="rounded-img" />
+      </div>
+
+      <div>
+        <h2>Build Real Income</h2>
+        <p>
+          This is a performance-based opportunity with real earning potential. With the right effort and consistency, you can build a meaningful income and long-term financial stability.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="container narrow">
+      <h2>Ready to Take the Next Step?</h2>
+      <p>
+        If you're motivated, coachable, and ready to build something meaningful, we’d love to connect with you.
+      </p>
+
+      <a href="lead-system.html" class="btn btn-primary">Start Your Application</a>
+
+      <p class="disclaimer">
+        This is an independent contractor opportunity. Licensing is required. Results are not guaranteed and depend on individual effort and performance.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> The Lombraña Agency, operated by Fog Valley Media LLC. All rights reserved.</p>
+      <p>© <span id="year"></span> The Lombraña Agency. All rights reserved.</p>
+
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="verification.html">Verification</a>
-        <a href="contact.html">Contact</a>
         <a href="join-us.html">Join Us</a>
+        <a href="contact.html">Contact</a>
         <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="terms.html">Terms & Conditions</a>
       </nav>
-      <a
-        class="social-link"
-        href="https://www.facebook.com/profile.php?id=61577456360968"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Follow The Lombraña Agency on Facebook"
-      >
-        <span class="social-icon">f</span>
-        <span>Follow The Lombraña Agency on Facebook</span>
-      </a>
     </div>
   </footer>
 
   <script src="script.js?v=27"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const items = document.querySelectorAll(".reveal");
 
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.14
-        }
-      );
-
-      items.forEach((item) => {
-        if (!item.classList.contains("is-visible")) {
-          revealObserver.observe(item);
-        }
-      });
-    });
-  </script>
 </body>
 </html>
