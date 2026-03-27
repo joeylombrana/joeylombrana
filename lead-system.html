@@ -4,12 +4,184 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Lead System Preview | The Lombraña Agency</title>
+  <title>Agent Trust & Lead System | The Lombraña Agency</title>
 
   <!-- 🔒 Prevent search engines -->
   <meta name="robots" content="noindex, nofollow">
 
   <link rel="stylesheet" href="styles.css" />
+<style>
+  .lead-page {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top right, rgba(201, 169, 106, 0.16), transparent 28%),
+      radial-gradient(circle at left center, rgba(18, 48, 74, 0.10), transparent 30%);
+  }
+
+  .lead-page::before,
+  .lead-page::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+    filter: blur(24px);
+    opacity: 0.8;
+  }
+
+  .lead-page::before {
+    width: 220px;
+    height: 220px;
+    top: -60px;
+    right: -60px;
+    background: rgba(201, 169, 106, 0.14);
+  }
+
+  .lead-page::after {
+    width: 180px;
+    height: 180px;
+    left: -36px;
+    bottom: 90px;
+    background: rgba(18, 48, 74, 0.10);
+  }
+
+  .lead-page .hero-copy,
+  .lead-page .form-shell {
+    position: relative;
+    background: linear-gradient(180deg, rgba(18, 48, 74, 0.95), rgba(18, 48, 74, 0.87));
+    color: #ffffff;
+    border-radius: 24px;
+    box-shadow:
+      0 22px 44px rgba(10, 25, 41, 0.18),
+      0 0 0 1px rgba(255,255,255,0.05) inset;
+    overflow: hidden;
+  }
+
+  .lead-page .hero-copy::before,
+  .lead-page .form-shell::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(201, 169, 106, 0.56),
+      rgba(255, 255, 255, 0.08),
+      rgba(201, 169, 106, 0.22)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  .lead-page .hero-copy::after,
+  .lead-page .form-shell::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+    opacity: 0.9;
+    filter: blur(10px);
+    background: radial-gradient(circle, rgba(201, 169, 106, 0.22), transparent 68%);
+  }
+
+  .lead-page .hero-copy::after {
+    width: 165px;
+    height: 165px;
+    top: -28px;
+    right: -18px;
+  }
+
+  .lead-page .form-shell::after {
+    width: 130px;
+    height: 130px;
+    top: -18px;
+    right: -14px;
+  }
+
+  .lead-page .hero-copy,
+  .lead-page .form-shell {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .lead-page .hero-copy:hover,
+  .lead-page .form-shell:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 28px 52px rgba(10, 25, 41, 0.24),
+      0 0 0 1px rgba(255,255,255,0.07) inset,
+      0 0 22px rgba(201, 169, 106, 0.12);
+  }
+
+  .lead-page .hero-copy h1,
+  .lead-page .hero-copy .hero-subheadline,
+  .lead-page .hero-copy .hero-support,
+  .lead-page .hero-copy .eyebrow,
+  .lead-page .form-shell h2,
+  .lead-page .form-shell p,
+  .lead-page .form-shell li,
+  .lead-page .form-shell .eyebrow {
+    position: relative;
+    z-index: 1;
+  }
+
+  .lead-page .hero-copy h1,
+  .lead-page .form-shell h2 {
+    color: #ffffff;
+  }
+
+  .lead-page .hero-copy .eyebrow,
+  .lead-page .form-shell .eyebrow {
+    color: rgba(255,255,255,0.78);
+  }
+
+  .lead-page .hero-copy .hero-subheadline,
+  .lead-page .hero-copy .hero-support,
+  .lead-page .form-shell p,
+  .lead-page .form-shell li {
+    color: rgba(255,255,255,0.92);
+  }
+
+  .lead-page .form-shell ul {
+    padding-left: 20px;
+  }
+
+  .lead-page .form-shell li {
+    margin-bottom: 8px;
+  }
+
+  .lead-page .private-note {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .lead-page .hero-copy,
+    .lead-page .form-shell {
+      border-radius: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .lead-page .hero-copy,
+    .lead-page .form-shell {
+      border-radius: 18px;
+    }
+
+    .lead-page .hero-copy::after,
+    .lead-page .form-shell::after {
+      width: 105px;
+      height: 105px;
+    }
+  }
+</style>
 </head>
 
 <body>
@@ -26,109 +198,201 @@
     </div>
   </header>
 
-  <main class="section">
-    <div class="container narrow">
+  <main class="section lead-page">
+  <section class="hero">
+    <div class="container hero-grid">
 
-      <p class="eyebrow">Private Preview</p>
+      <div class="hero-copy reveal is-visible parallax-card" data-parallax-speed="0.10">
+        <p class="eyebrow">Trust-Based Lead System for Life Insurance Agents</p>
 
-      <h1 class="page-title">
-        Lead Capture & Organization System
-      </h1>
+        <h1>
+          Build Trust Before the First Call —<br />
+          And Stop Chasing Bad Leads
+        </h1>
 
-      <p class="page-intro">
-        This is a simple system I built to improve my own lead flow, response time, and organization when working with OPT! and Switchboard Funnel.
-      </p>
+        <p class="hero-subheadline">
+  Most agents struggle with low-quality leads, no-shows, and prospects who are skeptical before the first conversation even starts.
+  This system helps solve that by establishing credibility upfront and capturing inbound, high-intent prospects.
+</p>
 
-      <!-- SECTION -->
-      <div class="form-shell" style="margin-top: 28px;">
+        <p class="hero-support">
+  No funnels to build. No software rabbit holes. No wasted time trying to piece together Squarespace pages, CRM tools, and lead workflows on your own.
+  This is a ready-to-use system built specifically for insurance agents who want a more professional, compliant, and efficient way to generate and manage interest.
+</p>
 
-        <h2>What This System Does</h2>
-        <ul>
-          <li>Captures leads from a clean, professional page</li>
-          <li>Sends an automatic response to new prospects</li>
-          <li>Organizes lead data for easy import into OPT!</li>
-          <li>Helps you respond faster and stay consistent</li>
-        </ul>
-
-        <hr style="margin: 28px 0; border: none; border-top: 1px solid rgba(0,0,0,0.08);" />
-
-	<div style="margin-top: 28px;">
-  	<h2>Generate High-Interest Leads</h2>
-
- 	 <p>
-  	  This system is designed to help you capture and organize <strong>high-interest leads</strong> — people who are actively looking for information and willingly submitting their contact details.
- 	 </p>
-
- 	 <ul>
-   	 <li>Use your own social media or personal outreach</li>
-   	 <li>Send prospects directly to your custom page</li>
- 	 <li>Capture inbound interest instead of chasing cold leads</li>
-   	 <li>Build your own pipeline without relying on purchased leads</li>
-  	</ul>
-
- 	 <p>
-   	 Instead of working through recycled or shared lead lists, this approach allows you to create a more consistent and controlled source of inbound opportunities.
- 	 </p>
-	</div>
-
-	<hr style="margin: 28px 0; border: none; border-top: 1px solid rgba(0,0,0,0.08);" />
-
-        <h2>Why I Built It</h2>
-        <p>
-          I wanted something simple that would:
-        </p>
-        <ul>
-          <li>Keep my leads organized</li>
-          <li>Improve response speed</li>
-          <li>Reduce manual work</li>
-          <li>Fit directly into the tools we already use</li>
-        </ul>
-
-        <hr style="margin: 28px 0; border: none; border-top: 1px solid rgba(0,0,0,0.08);" />
-
-        <h2>Who This Is For</h2>
-        <p>
-          Agents generating their own leads through:
-        </p>
-        <ul>
-          <li>Social media</li>
-          <li>Referrals</li>
-          <li>Personal marketing</li>
-          <li>Paid traffic</li>
-        </ul>
-
-        <hr style="margin: 28px 0; border: none; border-top: 1px solid rgba(0,0,0,0.08);" />
-
-        <h2>What You Get</h2>
-        <ul>
-          <li>Your own branded lead capture page</li>
-          <li>Automated email response setup</li>
-          <li>Lead data structured for OPT!</li>
-          <li>Simple system you can actually use daily</li>
-        </ul>
-
-        <hr style="margin: 28px 0; border: none; border-top: 1px solid rgba(0,0,0,0.08);" />
-
-        <h2>Next Step</h2>
-        <p>
-          If you want to see how this works or try something similar, I can walk you through it and help you get one set up.
-        </p>
-
-        <a href="agent-setup.html" class="btn btn-primary">
- 	 Request Setup / Walkthrough
-	</a>
-          </a>
+        <div class="hero-actions">
+          <a href="agent-setup.html" class="btn btn-primary">Schedule a Demo</a>
         </div>
-
       </div>
 
-      <!-- 🔐 subtle exclusivity -->
-      <p style="margin-top: 18px; font-size: 0.85rem; color: var(--text-soft); text-align: center;">
-        This page is shared privately and not publicly listed.
+    </div>
+  </section>
+<section class="section">
+  <div class="container narrow">
+    <div class="form-shell" style="margin-top: 10px;">
+
+      <p class="eyebrow">The Problem</p>
+      <h2>Most Agents Don’t Have a Lead Problem — They Have a Trust Problem</h2>
+
+      <p>
+        Early on, I ran into the same issues most agents face. I bought leads, made calls, followed up, and quickly realized that low-cost leads often come with low intent.
+      </p>
+
+      <ul>
+        <li>Most people didn’t answer</li>
+        <li>Some asked not to be contacted again</li>
+        <li>A few were polite, but uninterested</li>
+        <li>Even interested prospects often disappeared or no-showed</li>
+      </ul>
+
+      <p>
+        But the bigger problem showed up even before the conversation started: <strong>trust.</strong>
+      </p>
+
+      <p>
+        When I called people, some assumed I was a scammer and hung up before I could even introduce myself. That forced me to confront the real issue:
+      </p>
+
+      <p style="font-weight: 700; color: var(--navy);">
+  The goal is simple: establish trust earlier, support compliance, reduce manual work, and make it easier to focus on closing business.
+</p>
+
+      <p>
+        On top of that, there’s another challenge most agents don’t talk about enough: even if platforms like Squarespace, GoHighLevel, or other CRM tools can help, they still take time to learn, build, and maintain.
+      </p>
+
+      <p>
+        And most agents don’t need another software project. They need a system that is already built, already structured, and ready to use.
       </p>
 
     </div>
-  </main>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow">
+    <div class="form-shell" style="margin-top: 10px;">
+
+      <p class="eyebrow">The Solution</p>
+      <h2>A System Built to Establish Credibility, Capture Interest, and Reduce Friction</h2>
+
+      <p>
+        I built this system to solve the problems that were slowing me down in the field.
+      </p>
+
+      <p>
+        It starts with something simple but powerful: a professional verification-first page that helps prospects confirm who you are before the conversation even begins.
+      </p>
+
+      <ul>
+        <li>Shows your name, business identity, and contact information</li>
+        <li>Creates immediate trust before outreach</li>
+        <li>Supports legal/compliance credibility by making verification easy</li>
+        <li>Gives interested prospects a direct way to contact you</li>
+      </ul>
+
+      <p>
+        From there, the system captures inbound lead information, responds automatically, and organizes the data so it’s easier to manage and move into your workflow.
+      </p>
+
+      <p style="font-weight: 700; color: var(--navy);">
+        The goal is simple: build trust earlier, reduce manual work, and make it easier to focus on closing business.
+      </p>
+
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow">
+    <div class="form-shell" style="margin-top: 10px;">
+
+      <p class="eyebrow">What It Does</p>
+      <h2>What This System Actually Helps You Do</h2>
+
+      <ul>
+        <li>Build trust with prospects before the first call</li>
+        <li>Give prospects a professional place to verify who you are</li>
+        <li>Capture inbound interest from people who choose to contact you</li>
+        <li>Automatically send a follow-up response to new leads</li>
+        <li>Organize lead information inside Google Sheets</li>
+        <li>Structure data for easy export into OPT!</li>
+        <li>Reduce the manual work that slows agents down</li>
+        <li>Create a cleaner, more compliant first impression</li>
+      </ul>
+
+      <p>
+        This is not about replacing your sales ability. It’s about giving you a system that supports your credibility, improves your workflow, and helps you stay organized as interest comes in.
+      </p>
+
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow">
+    <div class="form-shell" style="margin-top: 10px;">
+
+      <p class="eyebrow">Clarity</p>
+      <h2>What This System Is Not</h2>
+
+      <ul>
+        <li>This is not a lead vendor</li>
+        <li>This does not guarantee leads or sales</li>
+        <li>This does not provide traffic for you</li>
+        <li>This is not a replacement for your effort or skill</li>
+      </ul>
+
+      <p>
+        This system provides the infrastructure — not the outcome.
+      </p>
+
+      <p>
+        You still control your marketing, your outreach, and your results. What this system does is give you a cleaner, more professional way to capture and manage interest when it happens.
+      </p>
+
+      <p style="font-weight: 700; color: var(--navy);">
+        You own your pipeline. You control your growth.
+      </p>
+
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow">
+
+    <div class="form-shell" style="margin-top: 10px; text-align: center;">
+
+      <p class="eyebrow">Next Step</p>
+
+      <h2>See How This Works — Step by Step</h2>
+
+      <p>
+  If you’re serious about creating a stronger first impression, building trust earlier, and reducing manual work, the next step is simple.
+</p>
+
+      <p>
+        I’ll walk you through exactly how the system works, how it fits into your current workflow, and how you can start using it right away.
+      </p>
+
+      <p style="font-weight: 700; color: var(--navy); margin-top: 18px;">
+        No pressure. No obligation. Just a clear walkthrough.
+      </p>
+
+      <div style="margin-top: 26px;">
+        <a href="agent-setup.html" class="btn btn-primary">
+          Schedule a Demo
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <div class="container narrow">
+    <p class="private-note">
+      This page is shared privately and not publicly listed.
+    </p>
+  </div>
+</main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
