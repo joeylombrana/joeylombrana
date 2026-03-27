@@ -306,7 +306,16 @@
         <ul class="verify-list">
           <li><strong>Agent Name:</strong> Joey Lombrana</li>
           <li><strong>Agency:</strong> The Lombraña Agency</li>
-          <li><strong>License:</strong> California Life Insurance License #: 4505568</li>
+          <li>
+  <strong>License:</strong> California Life Insurance License #:
+  <span 
+    id="licenseNumber"
+    style="color: #c9a96a; font-weight: 600; cursor: pointer; text-decoration: underline;"
+  >
+    4505568
+  </span>
+  <span id="copyMsg" style="margin-left: 8px; font-size: 0.8rem; color: #aaa;"></span>
+</li>
           <li><strong>Licensed In:</strong> State of California</li>
           <li><strong>Business Model:</strong> Independent Life Insurance Agent working with multiple carriers</li>
         </ul>
@@ -416,5 +425,24 @@
       }
     });
   </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const license = document.getElementById("licenseNumber");
+    const msg = document.getElementById("copyMsg");
+
+    if (license) {
+      license.addEventListener("click", () => {
+        navigator.clipboard.writeText(license.textContent.trim());
+
+        msg.textContent = "Copied!";
+        msg.style.color = "#c9a96a";
+
+        setTimeout(() => {
+          msg.textContent = "";
+        }, 2000);
+      });
+    }
+  });
+</script>
 </body>
 </html>
