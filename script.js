@@ -15,10 +15,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const flipCards = document.querySelectorAll(".flip-card");
+
+  const toggleFlipCard = (card) => {
+    card.classList.toggle("is-flipped");
+  };
+
   flipCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      card.classList.toggle("is-flipped");
+    card.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggleFlipCard(card);
     });
+
+    card.addEventListener("touchend", (e) => {
+      e.preventDefault();
+      toggleFlipCard(card);
+    }, { passive: false });
   });
 
   const reviewForm = document.getElementById("reviewForm");
