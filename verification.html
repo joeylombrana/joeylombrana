@@ -125,7 +125,8 @@
     .verify-card h2,
     .verify-card p,
     .verify-list,
-    .verify-card .btn {
+    .verify-card .btn,
+    .verify-video-wrap {
       position: relative;
       z-index: 1;
     }
@@ -166,6 +167,33 @@
 
     .verify-card p {
       margin: 0 0 18px;
+    }
+
+    .verify-video-wrap {
+      margin-bottom: 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow:
+        0 16px 32px rgba(10, 25, 41, 0.18),
+        0 0 0 1px rgba(255,255,255,0.04) inset;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .verify-video {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      overflow: hidden;
+      background: #0f263a;
+    }
+
+    .verify-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .verify-list {
@@ -232,6 +260,10 @@
       .verify-card {
         padding: 24px 20px;
       }
+
+      .verify-video-wrap {
+        border-radius: 16px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -252,6 +284,11 @@
       .verify-card::after {
         width: 105px;
         height: 105px;
+      }
+
+      .verify-video-wrap {
+        border-radius: 14px;
+        margin-bottom: 18px;
       }
     }
 
@@ -302,20 +339,22 @@
 
     <div class="container verification-grid">
       <div class="verify-card reveal is-visible parallax-card" data-parallax-speed="0.11">
+        <div class="verify-video-wrap">
+          <div class="verify-video">
+            <iframe
+              src="https://player.vimeo.com/video/1178080422"
+              title="Welcome Video"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
         <h2>Agent Information</h2>
         <ul class="verify-list">
           <li><strong>Agent Name:</strong> Joey Lombrana</li>
           <li><strong>Agency:</strong> The Lombraña Agency</li>
-          <li>
-  <strong>License:</strong> California Life Insurance License #:
-  <span 
-    id="licenseNumber"
-    style="color: #c9a96a; font-weight: 600; cursor: pointer; text-decoration: underline;"
-  >
-    4505568
-  </span>
-  <span id="copyMsg" style="margin-left: 8px; font-size: 0.8rem; color: #aaa;"></span>
-</li>
+          <li><strong>License:</strong> California Life Insurance License #: 4505568</li>
           <li><strong>Licensed In:</strong> State of California</li>
           <li><strong>Business Model:</strong> Independent Life Insurance Agent working with multiple carriers</li>
         </ul>
@@ -357,7 +396,7 @@
         <a href="join-us.html">Join Us</a>
         <a href="contact.html">Contact</a>
         <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
       </nav>
       <a
         class="social-link"
@@ -425,24 +464,5 @@
       }
     });
   </script>
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const license = document.getElementById("licenseNumber");
-    const msg = document.getElementById("copyMsg");
-
-    if (license) {
-      license.addEventListener("click", () => {
-        navigator.clipboard.writeText(license.textContent.trim());
-
-        msg.textContent = "Copied!";
-        msg.style.color = "#c9a96a";
-
-        setTimeout(() => {
-          msg.textContent = "";
-        }, 2000);
-      });
-    }
-  });
-</script>
 </body>
 </html>
