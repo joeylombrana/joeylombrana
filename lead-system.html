@@ -1,243 +1,434 @@
-<main class="section lead-page">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy reveal is-visible parallax-card" data-parallax-speed="0.10">
+  <title>Agent Trust & Lead System | The Lombraña Agency</title>
 
-        <p class="eyebrow">Agent Trust System for Life Insurance Agents</p>
+  <!-- 🔒 Prevent search engines -->
+  <meta name="robots" content="noindex, nofollow">
 
-        <h1>
-          Build Trust Before the First Call —<br />
-          And Create a More Professional First Impression
-        </h1>
+  <link rel="stylesheet" href="styles.css" />
+<style>
+  .lead-page {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top right, rgba(201, 169, 106, 0.16), transparent 28%),
+      radial-gradient(circle at left center, rgba(18, 48, 74, 0.10), transparent 30%);
+  }
 
-        <p class="hero-subheadline">
-          A done-for-you system that helps you establish credibility, capture inbound interest, and automate your follow-up — without needing to build everything yourself.
-        </p>
+  .lead-page::before,
+  .lead-page::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+    filter: blur(24px);
+    opacity: 0.8;
+  }
 
-        <p class="hero-support">
-          No complicated tech stacks. No piecing together multiple platforms. No wasted time trying to figure out what works.
-          This system gives you a structured, compliant way to present yourself professionally and manage incoming interest more efficiently.
-        </p>
+  .lead-page::before {
+    width: 220px;
+    height: 220px;
+    top: -60px;
+    right: -60px;
+    background: rgba(201, 169, 106, 0.14);
+  }
 
-        <div class="hero-actions">
-          <a href="agent-setup.html" class="btn btn-primary">Get Started</a>
+  .lead-page::after {
+    width: 180px;
+    height: 180px;
+    left: -36px;
+    bottom: 90px;
+    background: rgba(18, 48, 74, 0.10);
+  }
+
+  .lead-page .hero-copy,
+  .lead-page .form-shell {
+    position: relative;
+    background: linear-gradient(180deg, rgba(18, 48, 74, 0.95), rgba(18, 48, 74, 0.87));
+    color: #ffffff;
+    border-radius: 24px;
+    box-shadow:
+      0 22px 44px rgba(10, 25, 41, 0.18),
+      0 0 0 1px rgba(255,255,255,0.05) inset;
+    overflow: hidden;
+  }
+
+  .lead-page .hero-copy::before,
+  .lead-page .form-shell::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(201, 169, 106, 0.56),
+      rgba(255, 255, 255, 0.08),
+      rgba(201, 169, 106, 0.22)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  .lead-page .hero-copy::after,
+  .lead-page .form-shell::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+    opacity: 0.9;
+    filter: blur(10px);
+    background: radial-gradient(circle, rgba(201, 169, 106, 0.22), transparent 68%);
+  }
+
+  .lead-page .hero-copy::after {
+    width: 165px;
+    height: 165px;
+    top: -28px;
+    right: -18px;
+  }
+
+  .lead-page .form-shell::after {
+    width: 130px;
+    height: 130px;
+    top: -18px;
+    right: -14px;
+  }
+
+  .lead-page .hero-copy,
+  .lead-page .form-shell {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .lead-page .hero-copy:hover,
+  .lead-page .form-shell:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 28px 52px rgba(10, 25, 41, 0.24),
+      0 0 0 1px rgba(255,255,255,0.07) inset,
+      0 0 22px rgba(201, 169, 106, 0.12);
+  }
+
+  .lead-page .hero-copy h1,
+  .lead-page .hero-copy .hero-subheadline,
+  .lead-page .hero-copy .hero-support,
+  .lead-page .hero-copy .eyebrow,
+  .lead-page .form-shell h2,
+  .lead-page .form-shell p,
+  .lead-page .form-shell li,
+  .lead-page .form-shell .eyebrow {
+    position: relative;
+    z-index: 1;
+  }
+
+  .lead-page .hero-copy h1,
+  .lead-page .form-shell h2 {
+    color: #ffffff;
+  }
+
+  .lead-page .hero-copy .eyebrow,
+  .lead-page .form-shell .eyebrow {
+    color: rgba(255,255,255,0.78);
+  }
+
+  .lead-page .hero-copy .hero-subheadline,
+  .lead-page .hero-copy .hero-support,
+  .lead-page .form-shell p,
+  .lead-page .form-shell li {
+    color: rgba(255,255,255,0.92);
+  }
+
+  .lead-page .form-shell ul {
+    padding-left: 20px;
+  }
+
+  .lead-page .form-shell li {
+    margin-bottom: 8px;
+  }
+
+ .lead-page .form-shell p.gold-callout {
+  font-weight: 800;
+  color: #c9a96a !important;
+}
+  }
+
+  .lead-page .private-note {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .lead-page .hero-copy,
+    .lead-page .form-shell {
+      border-radius: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .lead-page .hero-copy,
+    .lead-page .form-shell {
+      border-radius: 18px;
+    }
+
+    .lead-page .hero-copy::after,
+    .lead-page .form-shell::after {
+      width: 105px;
+      height: 105px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="Lombrana Agency.png" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-name">The Lombraña Agency</span>
+          <span class="brand-tagline">Agent Systems & Lead Flow</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="section lead-page">
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-copy reveal is-visible parallax-card" data-parallax-speed="0.10">
+          <p class="eyebrow">Trust-Based Lead System for Life Insurance Agents</p>
+
+          <h1>
+            Build Trust Before the First Call —<br />
+            And Stop Chasing Bad Leads
+          </h1>
+
+          <p class="hero-subheadline">
+            Most agents struggle with low-quality leads, no-shows, and prospects who are skeptical before the first conversation even starts.
+            This system helps solve that by establishing credibility upfront and capturing inbound, high-intent prospects.
+          </p>
+
+          <p class="hero-support">
+            No funnels to build. No software rabbit holes. No wasted time trying to piece together Squarespace pages, CRM tools, and lead workflows on your own.
+            This is a ready-to-use system built specifically for insurance agents who want a more professional, compliant, and efficient way to generate and manage interest.
+          </p>
+
+          <div class="hero-actions">
+            <a href="agent-setup.html" class="btn btn-primary">Schedule a Demo</a>
+          </div>
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- OFFER SECTION -->
-  <section class="section">
-    <div class="container narrow">
+    <section class="section">
+      <div class="container narrow">
+        <div class="form-shell" style="margin-top: 10px;">
 
-      <div class="form-shell" style="text-align:center; margin-top: 10px;">
+          <p class="eyebrow">The Problem</p>
+          <h2>Most Agents Don’t Have a Lead Problem — They Have a Trust Problem</h2>
 
-        <p class="eyebrow">Get Started</p>
+          <p>
+            Early on, I ran into the same issues most agents face. I bought leads, made calls, followed up, and quickly realized that low-cost leads often come with low intent.
+          </p>
 
-        <h2>Launch Your Own Agent Trust System</h2>
+          <ul>
+            <li>Most people didn’t answer</li>
+            <li>Some asked not to be contacted again</li>
+            <li>A few were polite, but uninterested</li>
+            <li>Even interested prospects often disappeared or no-showed</li>
+          </ul>
 
-        <p>
-          Get a fully built, ready-to-use system designed to help you present yourself professionally, capture inbound interest, and stay organized as new leads come in.
-        </p>
+          <p>
+            But the bigger problem showed up even before the conversation started: <strong>trust.</strong>
+          </p>
 
-        <p class="gold-callout" style="margin-top:15px;">
-          Includes a verification page your prospects can visit to confirm who you are before the first conversation.
-        </p>
+          <p>
+            When I called people, some assumed I was a scammer and hung up before I could even introduce myself. That forced me to confront the real issue:
+          </p>
 
-        <p style="margin-top:15px;">
-          No complex setup. No need to piece together multiple tools. Just a structured system you can start using right away.
-        </p>
+          <p class="gold-callout">
+            The goal is simple: establish trust earlier, support compliance, reduce manual work, and make it easier to focus on closing business.
+          </p>
 
+          <p>
+            On top of that, there’s another challenge most agents don’t talk about enough: even if platforms like Squarespace, GoHighLevel, or other CRM tools can help, they still take time to learn, build, and maintain.
+          </p>
+
+          <p>
+            And most agents don’t need another software project. They need a system that is already built, already structured, and ready to use.
+          </p>
+
+        </div>
       </div>
+    </section>
 
-      <!-- OPTIONS -->
-      <div class="form-shell" style="margin-top:20px;">
+    <section class="section">
+      <div class="container narrow">
+        <div class="form-shell" style="margin-top: 10px;">
 
-        <h2 style="text-align:center;">Choose Your Setup</h2>
+          <p class="eyebrow">The Solution</p>
+          <h2>A System Built to Establish Credibility, Capture Interest, and Reduce Friction</h2>
 
-        <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;">
+          <p>
+            I built this system to solve the problems that were slowing me down in the field.
+          </p>
 
-          <!-- CORE -->
-          <div style="flex:1; min-width:260px;">
-            <h3>Core System</h3>
+          <p>
+            It starts with something simple but powerful: a professional verification-first page that helps prospects confirm who you are before the conversation even begins.
+          </p>
 
-            <p>
-              For agents who want a structured, professional way to capture and manage lead information.
-            </p>
+          <ul>
+            <li>Shows your name, business identity, and contact information</li>
+            <li>Creates immediate trust before outreach</li>
+            <li>Supports legal/compliance credibility by making verification easy</li>
+            <li>Gives interested prospects a direct way to contact you</li>
+          </ul>
 
-            <ul>
-              <li>Custom lead capture form</li>
-              <li>Instant email response (you + client)</li>
-              <li>Organized lead tracking system</li>
-              <li>CRM-ready data structure</li>
-              <li>Professional agent website with verification page</li>
-            </ul>
+          <p>
+            From there, the system captures inbound lead information, responds automatically, and organizes the data so it’s easier to manage and move into your workflow.
+          </p>
 
-            <p class="gold-callout">
-              $150 setup<br />
-              $57/month<br />
-              $615 annually (10% savings)
-            </p>
+        </div>
+      </div>
+    </section>
 
-            <div style="margin-top:15px;">
-              <a href="agent-setup.html" class="btn btn-primary">Get Started</a>
-            </div>
+    <section class="section">
+      <div class="container narrow">
+        <div class="form-shell" style="margin-top: 10px;">
+
+          <p class="eyebrow">What It Does</p>
+          <h2>What This System Actually Helps You Do</h2>
+
+          <ul>
+            <li>Build trust with prospects before the first call</li>
+            <li>Give prospects a professional place to verify who you are</li>
+            <li>Capture inbound interest from people who choose to contact you</li>
+            <li>Automatically send a follow-up response to new leads</li>
+            <li>Organize lead information inside Google Sheets</li>
+            <li>Structure data for easy export into Funnel</li>
+            <li>Reduce the manual work that slows agents down</li>
+            <li>Create a cleaner, more compliant first impression</li>
+          </ul>
+
+          <p>
+            This is not about replacing your sales ability. It’s about giving you a system that supports your credibility, improves your workflow, and helps you stay organized as interest comes in.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+        <div class="form-shell" style="margin-top: 10px;">
+
+          <p class="eyebrow">Clarity</p>
+          <h2>What This System Is Not</h2>
+
+          <ul>
+            <li>This is not a lead vendor</li>
+            <li>This does not guarantee leads or sales</li>
+            <li>This does not provide traffic for you</li>
+            <li>This is not a replacement for your effort or skill</li>
+          </ul>
+
+          <p>
+            This system provides the infrastructure — not the outcome.
+          </p>
+
+          <p>
+            You still control your marketing, your outreach, and your results. What this system does is give you a cleaner, more professional way to capture and manage interest when it happens.
+          </p>
+
+          <p class="gold-callout">
+            You own your pipeline. You control your growth.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+
+        <div class="form-shell" style="margin-top: 10px; text-align: center;">
+
+          <p class="eyebrow">Next Step</p>
+
+          <h2>See How This Works — Step by Step</h2>
+
+          <p>
+            If you’re serious about creating a stronger first impression, building trust earlier, and reducing manual work, the next step is simple.
+          </p>
+
+          <p>
+            I’ll walk you through exactly how the system works, how it fits into your current workflow, and how you can start using it right away.
+          </p>
+
+          <p class="gold-callout" style="margin-top: 18px;">
+            No pressure. No obligation. Just a clear walkthrough.
+          </p>
+
+          <div style="margin-top: 26px;">
+            <a href="agent-setup.html" class="btn btn-primary">
+              Schedule a Demo
+            </a>
           </div>
 
-          <!-- PRO -->
-          <div style="flex:1; min-width:260px;">
-            <h3>Pro System</h3>
-
-            <p>
-              For agents who want automation, efficiency, and a stronger first impression.
-            </p>
-
-            <ul>
-              <li>Everything in Core, plus:</li>
-              <li>Automatic CRM-ready file generation</li>
-              <li>Video-based trust integration</li>
-              <li>Reduced manual lead handling</li>
-              <li>More polished client experience</li>
-            </ul>
-
-            <p class="gold-callout">
-              $200 setup<br />
-              $97/month<br />
-              $1048 annually (10% savings)
-            </p>
-
-            <div style="margin-top:15px;">
-              <a href="agent-setup.html" class="btn btn-primary">Get Started</a>
-            </div>
-          </div>
-
-        </div>
-
-        <p style="margin-top:20px; text-align:center;">
-          No long-term contracts. Cancel anytime.
-        </p>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROBLEM -->
-  <section class="section">
-    <div class="container narrow">
-      <div class="form-shell">
-
-        <p class="eyebrow">The Reality</p>
-        <h2>Most Agents Don’t Have a Lead Problem — They Have a Trust Gap</h2>
-
-        <p>
-          Many agents put in the effort — reaching out, following up, and staying consistent — but still run into hesitation before the first conversation even begins.
-        </p>
-
-        <p>
-          Without a clear way for prospects to verify who you are and feel confident engaging with you, even legitimate outreach can feel uncertain from their perspective.
-        </p>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SOLUTION -->
-  <section class="section">
-    <div class="container narrow">
-      <div class="form-shell">
-
-        <p class="eyebrow">The System</p>
-        <h2>A Structured Way to Establish Credibility Before the First Conversation</h2>
-
-        <p>
-          The Agent Trust System gives prospects a professional way to engage with you before the conversation begins.
-        </p>
-
-        <p>
-          It includes a dedicated verification page where they can confirm your identity, view your information, and become familiar with who they’re speaking with — helping create a more comfortable and productive interaction.
-        </p>
-
-        <p>
-          From there, the system captures inbound information, responds automatically, and organizes your data so it’s ready to move into your workflow.
-        </p>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT IT DOES -->
-  <section class="section">
-    <div class="container narrow">
-      <div class="form-shell">
-
-        <p class="eyebrow">What It Supports</p>
-        <h2>A System That Helps You Stay Organized, Responsive, and Professional</h2>
-
-        <ul>
-          <li>Establishes trust before the first call</li>
-          <li>Provides a clear way for prospects to engage with you</li>
-          <li>Captures detailed lead information</li>
-          <li>Automatically responds to new inquiries</li>
-          <li>Organizes lead data for tracking and follow-up</li>
-          <li>Prepares information for CRM use</li>
-          <li>Reduces manual tasks so you can focus on conversations</li>
-        </ul>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT IT IS NOT -->
-  <section class="section">
-    <div class="container narrow">
-      <div class="form-shell">
-
-        <p class="eyebrow">Clarity</p>
-        <h2>What This System Is Designed — And Not Designed — To Do</h2>
-
-        <p>
-          This system is not a lead vendor and does not generate traffic on its own.
-        </p>
-
-        <p>
-          It is designed for agents who are already generating interest through their own marketing, referrals, or outreach, and want a more structured way to manage that interest.
-        </p>
-
-        <p class="gold-callout">
-          You control your outreach. This system supports how you manage and convert that interest.
-        </p>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="section">
-    <div class="container narrow">
-      <div class="form-shell" style="text-align:center;">
-
-        <p class="eyebrow">Next Step</p>
-
-        <h2>Get Started with a System Designed to Support Your Workflow</h2>
-
-        <p>
-          Choose the setup that fits your workflow and begin using the system right away.
-        </p>
-
-        <p class="gold-callout">
-          No long-term contracts. Cancel anytime.
-        </p>
-
-        <div style="margin-top:20px;">
-          <a href="agent-setup.html" class="btn btn-primary">Get Started</a>
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-</main>
+    <div class="container narrow">
+      <p class="private-note">
+        This page is shared privately and not publicly listed.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> The Lombraña Agency, operated by Fog Valley Media LLC. All rights reserved.</p>
+
+      <nav class="footer-nav">
+        <a href="https://www.lombranaagency.com/index.html" target="_blank" rel="noopener noreferrer">Home</a>
+        <a href="https://www.lombranaagency.com/services.html" target="_blank" rel="noopener noreferrer">Services</a>
+        <a href="https://www.lombranaagency.com/verification.html" target="_blank" rel="noopener noreferrer">Verification</a>
+        <a href="https://www.lombranaagency.com/join-us.html" target="_blank" rel="noopener noreferrer">Join Us</a>
+        <a href="https://www.lombranaagency.com/contact.html" target="_blank" rel="noopener noreferrer">Contact</a>
+        <a href="https://www.lombranaagency.com/privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a href="https://www.lombranaagency.com/terms.html" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
+      </nav>
+
+      <a
+        class="social-link"
+        href="https://www.facebook.com/profile.php?id=61577456360968"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Follow The Lombraña Agency on Facebook"
+      >
+        <span class="social-icon">f</span>
+        <span>Follow The Lombraña Agency on Facebook</span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
