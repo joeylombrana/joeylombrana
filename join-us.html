@@ -272,6 +272,37 @@
       color: rgba(255, 255, 255, 0.78);
       font-size: 0.9rem;
     }
+    .join-video-frame {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.join-video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
+
+.join-video-copy h2 {
+  margin-bottom: 18px;
+}
+
+.join-video-copy p {
+  margin: 0 0 10px;
+}
+
+.join-video-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+    .join-grid + .join-grid {
+  margin-top: 20px;
+}
 
     .reveal {
       opacity: 0;
@@ -341,6 +372,9 @@
 
       .join-image-frame {
         width: 92%;
+      }
+      .join-video-frame iframe {
+       height: 220px;
       }
 
       .join-hero-actions {
@@ -490,7 +524,7 @@
 <section class="join-section join-section-alt">
   <div class="container narrow">
 
-    <div class="reveal is-visible" style="text-align:center; margin-bottom:40px;">
+    <div class="join-copy join-video-copy reveal">
       <h2>Create Your Legacy With Us</h2>
       <p class="page-intro">
         The videos below will give you an inside look at who we are and how we help agents thrive.
@@ -500,14 +534,16 @@
     <!-- ROW 1 -->
     <div class="join-grid" style="margin-bottom:40px;">
       <div class="reveal">
-        <iframe src="https://player.vimeo.com/video/1180044458"
-          width="100%" height="260" frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
+  <div class="join-video-frame">
+    <iframe src="https://player.vimeo.com/video/1180044458"
+      width="100%" height="260" frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
-      <div class="join-copy reveal">
+      <div class="join-copy join-video-copy reveal">
         <h2>What Makes Us Great</h2>
         <p>✔ Flexible Schedule</p>
         <p>✔ 100% Remote Work</p>
@@ -518,7 +554,7 @@
 
     <!-- ROW 2 -->
     <div class="join-grid" style="margin-bottom:40px;">
-      <div class="join-copy reveal">
+      <div class="join-copy join-video-copy reveal">
         <h2>The Power of Ownership</h2>
         <p>✔ Control Your Future</p>
         <p>✔ Secure Ongoing Income</p>
@@ -527,12 +563,16 @@
       </div>
 
       <div class="reveal">
-        <iframe src="https://player.vimeo.com/video/1180038085"
-          width="100%" height="260" frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
+        <div class="reveal">
+  <div class="reveal">
+  <div class="join-video-frame">
+    <iframe src="https://player.vimeo.com/video/1180044666"
+      width="100%" height="260" frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
     </div>
 
     <!-- ROW 3 -->
@@ -545,7 +585,7 @@
         </iframe>
       </div>
 
-      <div class="join-copy reveal">
+      <div class="join-copy join-video-copy reveal">
         <h2>Designed for Your Success</h2>
         <p>✔ Inbound Leads</p>
         <p>✔ No Cold Calling</p>
