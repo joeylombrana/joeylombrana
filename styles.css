@@ -294,8 +294,8 @@ p {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  gap: 30px;
+  grid-template-columns: 1.16fr 1fr;
+  gap: 40px;
   align-items: center;
 }
 
@@ -311,7 +311,7 @@ p {
 }
 
 .hero-copy {
-  padding: 30px;
+  padding: 42px;
 }
 
 .hero-actions {
@@ -333,7 +333,7 @@ p {
 
 .art-card {
   position: relative;
-  height: 180px;
+  height: 210px;
   border-radius: 18px;
   overflow: hidden;
   background-size: cover;
@@ -349,7 +349,7 @@ p {
 
 .art-home-1 {
   grid-column: 1 / -1;
-  min-height: 250px;
+  min-height: 290px;
   background:
     linear-gradient(135deg, rgba(18, 48, 74, 0.14), rgba(201, 169, 106, 0.08)),
     url("suburban-family-home.jpg") center/cover no-repeat;
