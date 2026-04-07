@@ -67,7 +67,7 @@ select {
 }
 
 .section {
-  padding: 42px 0;
+  padding: 30px 0;
 }
 
 .section-sm {
@@ -289,7 +289,7 @@ p {
 
 /* Home / landing layouts */
 .hero {
-  padding: 48px 0 24px;
+  padding: 48px 0 8px;
 }
 
 .hero-grid {
